@@ -1,0 +1,25 @@
+@import "../../styles/styles.scss";
+
+.linkContainer {
+  width: 170px;
+  margin: 0 auto;
+}
+
+.linkStyle {
+  cursor: pointer;
+  display: block;
+  color: $lightblue;
+  font-size: 16px;
+  font-family: "Muli Regular", "Helvetica-Light", Helvetica, Arial, sans-serif;
+  // line-height: 38px;
+  padding: 10px;
+  // padding: 8px 16px;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

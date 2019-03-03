@@ -1,0 +1,53 @@
+@import "../../styles/styles.scss";
+
+.modalBody {
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.modalClose {
+  float: right;
+  padding: 2px;
+}
+
+.modalContainer {
+  background: $grey;
+  position: relative;
+  top: 15%;
+  z-index: 11;
+  padding: 0;
+  overflow: hidden;
+  width: 750px;
+  margin: 0 auto;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: $transparentblack;
+  overflow-y: auto;
+}
+
+.modalTitle {
+  display: inline-block;
+  padding: 2px;
+  float: left;
+  font-weight: bold;
+  color: $darkgrey;
+}
+
+.modalTitleContainer {
+  padding: 7px 12px;
+  border-bottom: 1px solid $lightgrey;
+  height: 30px;
+
+  &::after {
+    @extend .clear-fix;
+  }
+}

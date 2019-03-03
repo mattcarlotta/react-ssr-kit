@@ -1,0 +1,22 @@
+@import "../../styles/styles.scss";
+
+.homeContainer {
+  text-align: center;
+  height: 100%;
+}
+
+.logoContainer {
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 10%;
+  color: $teal;
+}
+
+.logoStyle {
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.textInfo {
+  margin: 5px;
+}

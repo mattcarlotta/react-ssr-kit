@@ -1,0 +1,48 @@
+@import "../../styles/styles.scss";
+
+.backgroundDetails {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  p {
+    color: $neutralgrey;
+    font-size: 16px;
+  }
+}
+
+.emailDetails {
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.listDetails {
+  margin-top: 5px;
+  font-size: 14px;
+  padding: 0;
+  list-style: none;
+  line-height: 1.4;
+  color: #999;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.userTitle {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.4;
+}
+
+.user {
+  color: #666;
+  margin: 0;
+}
+
+.userButtonsContainer {
+  display: inline-block;
+  float: right;
+  &::after {
+    @extend .clear-fix;
+  }
+}
