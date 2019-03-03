@@ -90,7 +90,7 @@ Note: This a SSR (Server Side Rendering) boilerplate! A React only boilerplate c
  git clone -b ssr git@github.com:mattcarlotta/Webpack-React-Boilerplate.git
 ```
 
-2 - Run `npm install` to install dependencies.
+2 - Run `npm install` or `yarn install` to install dependencies.
 
 3 - While at the application's root directory, start the server by running `npm run dev`.
 
@@ -117,7 +117,7 @@ If you wish to remove the API:
 
 - Delete the `api` folder.
 - In `src/server.js` remove `import startAPI from "../api";` and `startAPI(app);`.
-- Type `npm uninstall -S bluebird body-parser consign mongoose` to remove its dependencies.
+- Type `npm uninstall -S bluebird body-parser consign mongoose` or `yarn remove bluebird body-parser consign mongoose` to remove its dependencies.
 
 ## Configuration
 
