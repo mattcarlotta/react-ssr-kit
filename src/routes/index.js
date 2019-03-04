@@ -5,7 +5,7 @@ import ShowUsers from "../pages/ShowUsers";
 import { fetchUsers } from "../actions/users";
 import { setPopMessage } from "../actions/server";
 
-export default [
+const routes = [
   {
     component: App,
     routes: [
@@ -24,8 +24,11 @@ export default [
         loadInitState: () => [fetchUsers()]
       },
       {
-        component: NotFound
+        component: NotFound,
+        path: "*"
       }
     ]
   }
 ];
+
+export default routes;
