@@ -26,5 +26,6 @@ export const App = ({ route: { routes } }) => (
   </div>
 );
 
+// export default hot(module)(App);
 export default App;
 /* eslint-enable */
