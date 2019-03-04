@@ -1,5 +1,5 @@
 import React from "react";
-import { render, hydrate } from "react-dom";
+import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
 import { renderRoutes } from "react-router-config";
@@ -13,7 +13,7 @@ import { renderRoutes } from "react-router-config";
  * @function render
  */
 const renderApp = (routes, history, store) => {
-  const renderMethod = module.hot ? render : hydrate;
+  const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
   renderMethod(
     <Provider store={store}>
       <ConnectedRouter history={history}>
