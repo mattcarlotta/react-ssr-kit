@@ -9187,7 +9187,7 @@
       "publicPath": "/assets/main.js.map"
     }
   ],
-  "../../components/Loading": [
+  "../Loading": [
     {
       "id": "./src/components/Loading/index.js",
       "name": "./src/components/Loading/index.js",

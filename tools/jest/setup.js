@@ -6,9 +6,9 @@ import {
   mountWrap,
   shallowWrap
 } from "../../src/utils/client/tests";
+import mockAxios from "../../src/utils/mocks/axios";
 
 configure({ adapter: new Adapter() });
-global.fetch = require("jest-fetch-mock");
 
 //= =============================================================================//
 // JEST AND ENZYME TESTING SETUP                                                  /
@@ -32,6 +32,7 @@ global.HTMLAnchorElement = window.HTMLAnchorElement;
 global.shallow = shallowWrap;
 global.mount = mountWrap;
 global.checkProps = checkProps;
+global.mockAxios = mockAxios;
 global.React = require("react");
 global.Provider = require("react-redux").Provider;
 global.ConnectedRouter = require("connected-react-router").ConnectedRouter;

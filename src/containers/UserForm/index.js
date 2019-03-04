@@ -159,8 +159,6 @@ UserForm.propTypes = {
   backgroundInfo: PropTypes.string,
   firstName: PropTypes.string,
   lastName: PropTypes.string,
-  onDeleteClick: PropTypes.func,
-  onEditClick: PropTypes.func,
   userName: PropTypes.string,
   address: PropTypes.shape({
     street: PropTypes.string,

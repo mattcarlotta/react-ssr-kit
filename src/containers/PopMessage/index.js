@@ -11,7 +11,7 @@ import {
   popMessageStyle
 } from "./styles.scss";
 
-class PopMessage extends Component {
+export class PopMessage extends Component {
   componentDidMount = () => {
     if (this.props.serverMessage || this.props.serverError)
       this.setMessageTimer();
