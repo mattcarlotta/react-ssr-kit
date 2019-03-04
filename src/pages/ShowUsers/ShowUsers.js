@@ -6,11 +6,11 @@ import { connect } from "react-redux";
 import Placeholder from "../../components/Placeholder";
 import DisplayUserList from "../../components/DisplayUserList";
 import UserListNavigation from "../../components/UserListNavigation";
-import { deleteUser, fetchUsers, seedDB } from "../../actions/users";
+import * as actions from "../../actions/users";
 import { setPopMessage, setPopErrorMessage } from "../../actions/server";
 import { preventScroll, usersContainer } from "./styles.scss";
 
-class ShowUsers extends Component {
+export class ShowUsers extends Component {
   constructor(props) {
     super(props);
 
@@ -38,7 +38,8 @@ class ShowUsers extends Component {
   };
 
   fetchData = () => {
-    fetchUsers()
+    this.props
+      .fetchUsers()
       .then(res => this.setState({ data: res.data, isLoading: false }))
       .catch(err => {
         this.setState(
@@ -54,7 +55,8 @@ class ShowUsers extends Component {
   };
 
   handleSeedDatabase = () => {
-    seedDB()
+    this.props
+      .seedDB()
       .then(res => this.setState({ data: res.data, isLoading: false }))
       .catch(err => {
         this.setState(
@@ -72,7 +74,8 @@ class ShowUsers extends Component {
   };
 
   handleDeleteClick = id => {
-    deleteUser(id)
+    this.props
+      .deleteUser(id)
       .then(res => this.updateUserList(res.data.message))
       .catch(err =>
         this.props.setPopErrorMessage(
@@ -116,6 +119,7 @@ class ShowUsers extends Component {
         ) : (
           <DisplayUserList
             data={data}
+            createUser={this.props.createUser}
             isEditingID={isEditingID}
             openModal={openModal}
             onHandleCloseModal={this.handleCloseModal}
@@ -123,6 +127,7 @@ class ShowUsers extends Component {
             onHandleEditClick={this.handleEditClick}
             onHandleResetEditClick={this.handleResetEditClick}
             onUpdateUserList={this.updateUserList}
+            updateUser={this.props.updateUser}
           />
         )}
       </div>
@@ -131,6 +136,11 @@ class ShowUsers extends Component {
 }
 
 ShowUsers.propTypes = {
+  createUser: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired,
+  fetchUsers: PropTypes.func.isRequired,
+  seedDB: PropTypes.func.isRequired,
+  updateUser: PropTypes.func.isRequired,
   setPopMessage: PropTypes.func.isRequired,
   setPopErrorMessage: PropTypes.func.isRequired,
   staticContext: PropTypes.shape({
@@ -159,5 +169,5 @@ ShowUsers.propTypes = {
 
 export default connect(
   null,
-  { setPopMessage, setPopErrorMessage }
+  { setPopMessage, setPopErrorMessage, ...actions }
 )(ShowUsers);

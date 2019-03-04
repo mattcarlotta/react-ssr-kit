@@ -6,17 +6,18 @@ import Container from "../Container";
 import Modal from "../Modal";
 import NoData from "../NoData";
 import UserForm from "../../containers/UserForm";
-import { createUser, updateUser } from "../../actions/users";
 
 const DisplayUserList = ({
   data,
+  createUser,
   isEditingID,
   openModal,
   onHandleCloseModal,
   onHandleDeleteClick,
   onHandleEditClick,
   onHandleResetEditClick,
-  onUpdateUserList
+  onUpdateUserList,
+  updateUser
 }) => (
   <Fragment>
     {openModal && (
@@ -76,13 +77,15 @@ DisplayUserList.propTypes = {
       })
     )
   }),
+  createUser: PropTypes.func.isRequired,
   isEditingID: PropTypes.string,
   openModal: PropTypes.bool,
   onHandleCloseModal: PropTypes.func.isRequired,
   onHandleDeleteClick: PropTypes.func.isRequired,
   onHandleEditClick: PropTypes.func.isRequired,
   onHandleResetEditClick: PropTypes.func.isRequired,
-  onUpdateUserList: PropTypes.func.isRequired
+  onUpdateUserList: PropTypes.func.isRequired,
+  updateUser: PropTypes.func.isRequired
 };
 
 export default DisplayUserList;

@@ -22,10 +22,14 @@ const Card = ({
   lastName,
   userName
 }) => (
-  <header>
+  <div className="userCard">
     <div className={userButtonsContainer}>
-      <EditButton onClick={onEditClick} />
-      <DeleteButton onClick={onDeleteClick} />
+      <span className="editUser">
+        <EditButton onClick={onEditClick} />
+      </span>
+      <span className="deleteUser">
+        <DeleteButton onClick={onDeleteClick} />
+      </span>
     </div>
     <h1 className={userTitle}>{userName}</h1>
     <p className={user}>
@@ -50,7 +54,7 @@ const Card = ({
     <div className={backgroundDetails}>
       <p>{backgroundInfo}</p>
     </div>
-  </header>
+  </div>
 );
 
 Card.propTypes = {

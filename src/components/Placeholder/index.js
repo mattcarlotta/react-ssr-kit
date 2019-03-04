@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Container from "../Container";
 
 const Placeholder = () => (
-  <Fragment>
+  <div className="placeholderContainer">
     <Container animated />
     <Container animated />
     <Container animated />
-  </Fragment>
+  </div>
 );
 
 export default Placeholder;

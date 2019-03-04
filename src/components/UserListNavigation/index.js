@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Button from "../Button";
 import CreateIcon from "../CreateIcon";
@@ -8,31 +8,35 @@ import SeedIcon from "../SeedIcon";
 import { buttonContainer } from "./styles.scss";
 
 const UserListNavigation = ({ onHandleOpenModal, onHandleSeedDatabase }) => (
-  <Fragment>
+  <div className="userListNav">
     <Link to="/">
       <HomeIcon />
       <span>Go Back</span>
     </Link>
     <div className={buttonContainer}>
-      <Button
-        style={{ float: "left" }}
-        type="button"
-        onClick={onHandleSeedDatabase}
-      >
-        <SeedIcon />
-        <span>Seed Database</span>
-      </Button>
-      <Button
-        primary
-        style={{ float: "right" }}
-        type="button"
-        onClick={onHandleOpenModal}
-      >
-        <CreateIcon />
-        <span>Create New User</span>
-      </Button>
+      <span className="seedDatabaseButton">
+        <Button
+          style={{ float: "left" }}
+          type="button"
+          onClick={onHandleSeedDatabase}
+        >
+          <SeedIcon />
+          <span>Seed Database</span>
+        </Button>
+      </span>
+      <span className="openModalButton">
+        <Button
+          primary
+          style={{ float: "right" }}
+          type="button"
+          onClick={onHandleOpenModal}
+        >
+          <CreateIcon />
+          <span>Create New User</span>
+        </Button>
+      </span>
     </div>
-  </Fragment>
+  </div>
 );
 
 UserListNavigation.propTypes = {
