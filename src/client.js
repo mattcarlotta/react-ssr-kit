@@ -19,7 +19,11 @@ Loadable.preloadReady().then(() => render(routes, history, store)); // react-loa
 // Enable webpack hot module replacement for routes
 if (module.hot) {
   module.hot.accept("./routes", () => {
-    const nextRoutes = require("./routes").default;
-    render(nextRoutes, history, store);
+    try {
+      const nextRoutes = require("./routes").default;
+      render(nextRoutes, history, store);
+    } catch (err) {
+      console.error(`Routes hot reloading error: ${err}`);
+    }
   });
 }
