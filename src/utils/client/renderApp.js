@@ -10,7 +10,7 @@ import { renderRoutes } from "react-router-config";
 
 /**
  * Factory function to hydrate the client-side DOM
- * @function render
+ * @function renderApp
  */
 const renderApp = (routes, history, store) => {
   const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
