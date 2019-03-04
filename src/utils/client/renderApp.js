@@ -14,7 +14,6 @@ import { renderRoutes } from "react-router-config";
  */
 const renderApp = (routes, history, store) => {
   const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
-  console.log("routes!: ", routes);
   renderMethod(
     <Provider store={store}>
       <ConnectedRouter history={history}>
