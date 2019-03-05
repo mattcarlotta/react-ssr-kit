@@ -122,6 +122,14 @@ If you wish to remove the API:
 
 ## Configuration
 
+- `.browserslistrc` config to share target browsers between different front-end tools.
+- `.estlintignore` eslist config to ignore the files and folders specified.
+- `.eslintrc.js` eslint config.
+- `babel.config.js` babel config.
+- `jest.json` jest config.
+- `nodemon.json` nodemon config.
+- `postcss.config.js` postcss config.
+- `stylint.config.js` stylelint config.
 - `envs/index.js` node and webpack environment variables.
 - `public/assets` contains compiled, production build `.css`, `.map`, `.js`, and `.gz` files.
 - `public/loadable-assets.json` contains development file chunks.
@@ -155,7 +163,7 @@ If you wish to remove the API:
 
 ## Packages Incorporated
 
-These packages are updated by an automated script that can be found <a href="https://github.com/mattcarlotta/UpdateBoilerplate">here</a>. To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/package.json#L283-L389">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/issues">here</a>.
+These packages are updated by an automated script that can be found <a href="https://github.com/mattcarlotta/UpdateBoilerplate">here</a>. To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/package.json#L107-L220">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/issues">here</a>.
 
 - [Webpack](https://github.com/webpack/webpack)
 - [Babel](https://github.com/babel/babel)
