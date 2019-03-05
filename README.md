@@ -139,7 +139,7 @@ If you wish to remove the API:
 - `src/server.js` express server.
 - `src/styles/assets` media assets imports.
 - `src/styles/extensions` partial shared extensions.
-- `src/styles/globals` global asset imports (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/styles/globals/globals.scss#L1-L25">global.scss</a> for important information).
+- `src/styles/globals` global asset imports (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/styles/globals/globals.scss#L1-L30">global.scss</a> for important information).
 - `src/styles/variables` partial shared variables.
 - `src/styles/styles.scss` indexed partial files for easier sharing (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/styles/styles.scss#L1-L39">styles.scss</a> for important information).
 - `src/utils/client/axiosConfig.js` client-side axios setup (must point to the correct `HOST`/`PORT` for the running environment).
