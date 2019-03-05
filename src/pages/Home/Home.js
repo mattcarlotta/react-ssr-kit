@@ -10,11 +10,11 @@ import {
   textInfo
 } from "./styles.scss";
 
-export default () => (
+const Home = () => (
   <div className={homeContainer}>
     <Helmet title="Home" />
     <div className={logoContainer}>
-      <img className={logoStyle} src={logo} alt="" />
+      <img className={logoStyle} src={logo} alt="ssrLogoLight.png" />
       <h1 className={textInfo}>Webpack SSR Boilerplate</h1>
       <h1 className={textInfo}>Edit ./components and save to reload.</h1>
       <Link style={{ marginTop: 10 }} to="/users">
@@ -24,3 +24,5 @@ export default () => (
     </div>
   </div>
 );
+
+export default Home;

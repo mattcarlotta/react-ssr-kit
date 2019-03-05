@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import Link from "../../components/Link";
 import { notfound, notfoundContainer } from "./styles.scss";
 
-export default () => (
+const NotFound = () => (
   <div className={notfoundContainer}>
     <Helmet title="Page Not Found" />
     <div className={notfound}>
@@ -12,3 +12,5 @@ export default () => (
     </div>
   </div>
 );
+
+export default NotFound;

@@ -51,6 +51,7 @@ Note: This a React SSR (Server Side Rendering) boilerplate! A React only boilerp
 |   ├── utils
 |   |   ├── client
 |   |   |   ├── axiosConfig.js
+|   |   |   ├── mocks
 |   |   |   ├── renderApp.js
 |   |   |   └── tests.js
 |   |   |
@@ -134,6 +135,7 @@ If you wish to remove the API:
 - `src/styles/variables` partial shared variables.
 - `src/styles/styles.scss` indexed partial files for easier sharing (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/styles/styles.scss#L1-L39">styles.scss</a> for important information).
 - `src/utils/client/axiosConfig.js` client-side axios setup (must point to the correct `HOST`/`PORT` for the running environment).
+- `src/utils/client/mocks` client-side global mocks for testing.
 - `src/utils/client/renderApp.js` client-side React setup.
 - `src/utils/client/tests.js` custom functions tests to leverage `mount`, `shallow`, and `checkPropsTypes` (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/utils/client/tests.js">tests.js</a> for utilization).
 - `src/utils/client/middlewares.js` express middlewares.

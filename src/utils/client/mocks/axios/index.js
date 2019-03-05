@@ -1,5 +1,5 @@
 import MockAdapter from "axios-mock-adapter";
-import axios from "../../client/axiosConfig";
+import axios from "../../axiosConfig";
 
 const mockAxios = new MockAdapter(axios);
 

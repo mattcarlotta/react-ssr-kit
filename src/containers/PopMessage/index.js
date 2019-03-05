@@ -18,8 +18,8 @@ export class PopMessage extends Component {
   };
 
   componentDidUpdate = () => {
-    const { serverError, serverMessage } = this.props;
-    if (serverError || serverMessage) this.setMessageTimer();
+    if (this.props.serverError || this.props.serverMessage)
+      this.setMessageTimer();
   };
 
   shouldComponentUpdate = nextProps =>
@@ -35,17 +35,16 @@ export class PopMessage extends Component {
     this.props.resetPopMessages();
   };
 
-  render = () => {
-    const { serverError, serverMessage } = this.props;
-    const message = serverMessage || serverError;
-    const color = serverMessage ? "#007ec5" : "#f5222d";
-
-    return message ? (
+  render = () =>
+    this.props.serverMessage || this.props.serverError ? (
       <div className={popMessageContainer}>
         <div className={popMessageInnerContainer}>
-          <p style={{ color }} className={popMessageStyle}>
-            {serverMessage ? <InfoIcon /> : <ErrorIcon />}
-            {message}
+          <p
+            style={{ color: this.props.serverMessage ? "#007ec5" : "#f5222d" }}
+            className={popMessageStyle}
+          >
+            {this.props.serverMessage ? <InfoIcon /> : <ErrorIcon />}
+            {this.props.serverMessage || this.props.serverError}
           </p>
           <CloseButton
             onClick={this.handleClose}
@@ -60,7 +59,6 @@ export class PopMessage extends Component {
         </div>
       </div>
     ) : null;
-  };
 }
 
 PopMessage.propTypes = {

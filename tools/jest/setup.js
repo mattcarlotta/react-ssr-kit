@@ -6,7 +6,7 @@ import {
   mountWrap,
   shallowWrap
 } from "../../src/utils/client/tests";
-import mockAxios from "../../src/utils/mocks/axios";
+import mockAxios from "../../src/utils/client/mocks/axios";
 
 configure({ adapter: new Adapter() });
 

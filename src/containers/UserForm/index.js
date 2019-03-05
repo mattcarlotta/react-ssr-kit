@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 import FormError from "../../components/FormError";
 import Input from "../../components/Input";
 import TextArea from "../../components/TextArea";
-import fields from "./fields";
+import fields from "./formFields";
 import {
   cancelContainer,
   formButtons,
