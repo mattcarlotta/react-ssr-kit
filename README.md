@@ -118,7 +118,7 @@ If you wish to utilize the API:
 If you wish to remove the API:
 
 - Delete the `api` folder.
-- In `src/server.js` remove `import startAPI from "../api";` and `startAPI(app);`.
+- In `src/server.js` remove <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/server.js#L7">line 7<a/> and remove <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/server.js#L18">line 18</a>.
 - Type `npm uninstall -S bluebird body-parser consign mongoose` or `yarn remove bluebird body-parser consign mongoose` to remove its dependencies.
 
 ## Configuration
