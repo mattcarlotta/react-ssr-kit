@@ -1,3 +1,4 @@
+/* global __CLIENT__:false */
 import isEmpty from "lodash/isEmpty";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
@@ -15,7 +16,6 @@ export class ShowUsers extends Component {
     super(props);
 
     let data;
-    // eslint-disable-next-line no-undef
     if (__CLIENT__) {
       data = window.__INITIAL_STATE__;
       delete window.__INITIAL_STATE__;

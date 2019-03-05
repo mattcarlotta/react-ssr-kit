@@ -1,5 +1,4 @@
 import { shallow, mount } from "enzyme";
-import checkPropTypes from "check-prop-types";
 import thunk from "redux-thunk";
 import { createBrowserHistory } from "history";
 import { createStore, applyMiddleware } from "redux";
@@ -14,7 +13,6 @@ const middlewares = applyMiddleware(thunk);
 
 /**
  * Create a testing store with imported reducers, initial state, and middleware(s).
- * globals: rootReducer, middlewares
  * @function createStoreFactory
  * @param {object} initialState - Initial store state.
  * @returns {store} - redux store with
@@ -47,19 +45,4 @@ export const mountWrap = (Component, state = null) => {
   const wrapper = mount(Component);
   if (state) wrapper.setState(state);
   return wrapper;
-};
-
-/**
- * Component PropType error checking
- * @param {node} Component - Component to be checked.
- * @param {conformingProps} object - Component props to be checked against.
- */
-export const checkProps = (Component, conformingProps) => {
-  const propError = checkPropTypes(
-    Component.propTypes,
-    conformingProps,
-    "prop",
-    Component.name
-  );
-  expect(propError).toBeUndefined();
 };

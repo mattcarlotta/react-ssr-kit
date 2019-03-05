@@ -3,7 +3,6 @@ import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {
   createStoreFactory,
-  checkProps,
   mountWrap,
   shallowWrap
 } from "../../src/utils/client/tests";
@@ -33,7 +32,6 @@ global.HTMLAnchorElement = window.HTMLAnchorElement;
 global.createStoreFactory = createStoreFactory;
 global.shallow = shallowWrap;
 global.mount = mountWrap;
-global.checkProps = checkProps;
 global.mockAxios = mockAxios;
 global.React = require("react");
 global.Provider = require("react-redux").Provider;

@@ -38,6 +38,7 @@ Note: This a React SSR (Server Side Rendering) boilerplate! A React only boilerp
 |   ├── containers
 |   ├── pages
 |   ├── reducers
+|   ├── root
 |   ├── routes
 |   ├── store
 |   ├── styles
@@ -162,7 +163,7 @@ If you wish to remove the API:
 
 ## Packages Incorporated
 
-These packages are updated by an automated script that can be found <a href="https://github.com/mattcarlotta/UpdateBoilerplate">here</a>. To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/package.json#L107-L220">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/issues">here</a>.
+These packages are updated by an automated script that can be found <a href="https://github.com/mattcarlotta/UpdateBoilerplate">here</a>. To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/package.json#L107-L213">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/issues">here</a>.
 
 - [Webpack](https://github.com/webpack/webpack)
 - [Babel](https://github.com/babel/babel)
@@ -204,6 +205,6 @@ These packages are updated by an automated script that can be found <a href="htt
 ⚠️ `react-router`, `react-router-dom`, and `react-router-config` **MUST** be the same version. If any of them are different versions from each other, then you'll get this <a href="https://i.imgur.com/hH3Z7sS.png">reference error</a>.
 
 ⚠️ React Hot Loader throws a warning if you use `react-dom` instead of `@hot-loader/react-dom`: <a href="https://stackoverflow.com/a/54816859/7376526">react-🔥-dom patch is not detected. React 16.6+ features may not work.</a>
-If you wish to utilize React Hot Loader, then follow these <a href="https://github.com/hot-loader/react-dom#install">instructions to install hot-loader/react-dom</a>. In addition, in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/components/App/App.js">src/components/app/App.js</a> you must uncomment lines 5 and 29; as well as, in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/utils/client/renderApp.js">src/utils/client/renderApp.js</a> you must uncomment line 3 and wrap everything inside of the `renderMethod` with an `<AppContainer>...</AppContainer>`. If the process is already running, you must stop and restart it.
+If you wish to utilize React Hot Loader, then follow these <a href="https://github.com/hot-loader/react-dom#webpack">instructions to resolve hot-loader/react-dom</a> inside of Webpack. In addition, in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/components/App/App.js">src/components/app/App.js</a> you must uncomment lines 5 and 29; as well as, in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/root/index.js">src/utils/client/renderApp.js</a> you must uncomment line 4 and wrap lines 10-12 (`<Provider>...</Provider>`) with an `<AppContainer>...</AppContainer>`. If the process is already running, you must stop and restart it.
 
 ⚠️ ReactLoadablePlugin throws two deprecation warnings during compilation: <a href="https://github.com/jamiebuilds/react-loadable/pull/140">DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead. DeprecationWarning: Chunk.forEachModule: Use for(const module of chunk.modulesIterable) instead.</a>

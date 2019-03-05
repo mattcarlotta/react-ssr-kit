@@ -1,12 +1,11 @@
 import { resolve } from "path";
 import express from "express";
-
-const { cwd } = process;
+import { currentDirectory } from "../../../envs";
 
 //= =============================================================================//
 // SERVE PRODUCTION ASSETS                                                        /
 //= =============================================================================//
 
 export default app => {
-  app.use(express.static(resolve(cwd(), "public")));
+  app.use(express.static(resolve(`${currentDirectory}/public`)));
 };
