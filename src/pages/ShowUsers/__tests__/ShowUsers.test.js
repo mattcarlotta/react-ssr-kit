@@ -1,77 +1,26 @@
 import { StaticRouter } from "react-router-dom";
 import { ShowUsers } from "../ShowUsers";
+import {
+  mockCreateUser,
+  mockDeleteUser,
+  mockFetchUsers,
+  mockSeedDB,
+  mockSetPopMessage,
+  mockSetPopErrorMessage,
+  mockUpdateUser,
+  mockUsers
+} from "../__mocks__/ShowUsers.mocks";
 
 window.__CLIENT__ = true;
 
-const users = [
-  {
-    _id: "88",
-    email: "test@test.com",
-    firstName: "Test",
-    lastName: "Test",
-    userName: "Test",
-    backgroundInfo: "Test",
-    address: {
-      street: "Test",
-      suite: "",
-      city: "Test",
-      state: "Test",
-      zipCode: "Test"
-    }
-  }
-];
-
-const res = { data: { users } };
-
-const mockFetchUsers = jest.fn(
-  success =>
-    new Promise((resolve, reject) => {
-      if (success) {
-        resolve(res);
-      } else {
-        reject(new Error("Unable to fetch users!"));
-      }
-    })
-);
-
-const successMessage = "Successfully deleted Test.";
-const resSuccess = { data: { message: successMessage } };
-
-const mockDeleteUser = jest.fn(
-  id =>
-    new Promise((resolve, reject) => {
-      if (id) {
-        resolve(resSuccess);
-      } else {
-        reject(new Error("Unable to delete user!"));
-      }
-    })
-);
-
-const mockSeedDB = jest.fn(
-  success =>
-    new Promise((resolve, reject) => {
-      if (success) {
-        resolve(res);
-      } else {
-        reject(new Error("Unable to seed database"));
-      }
-    })
-);
-
-const createUser = jest.fn();
-const setPopMessage = jest.fn();
-const setPopErrorMessage = jest.fn();
-const updateUser = jest.fn();
-
 const initialProps = {
-  createUser,
+  createUser: mockCreateUser,
   deleteUser: id => mockDeleteUser(id),
   fetchUsers: () => mockFetchUsers(""),
   seedDB: () => mockSeedDB(""),
-  setPopMessage,
-  setPopErrorMessage,
-  updateUser
+  setPopMessage: mockSetPopMessage,
+  setPopErrorMessage: mockSetPopErrorMessage,
+  updateUser: mockUpdateUser
 };
 
 const context = {};
@@ -83,13 +32,13 @@ const mountComponent = (props = {}) =>
     </StaticRouter>
   );
 
-describe("Show Users", () => {
+describe("Show Users Page", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = mountComponent({ ...initialProps });
   });
 
-  afterAll(() => {
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
@@ -111,7 +60,7 @@ describe("Show Users", () => {
       wrapper.update();
       expect(mockFetchUsers).toHaveBeenCalled();
       expect(wrapper.find("div.noDataContainer")).toHaveLength(1);
-      expect(setPopErrorMessage).toHaveBeenCalled();
+      expect(mockSetPopErrorMessage).toHaveBeenCalled();
     });
 
     it("renders DisplayUserList if database contains a user list", async () => {
@@ -130,7 +79,7 @@ describe("Show Users", () => {
         .find("button")
         .simulate("click");
       await Promise.resolve();
-      expect(setPopErrorMessage).toHaveBeenCalled();
+      expect(mockSetPopErrorMessage).toHaveBeenCalled();
     });
 
     it("renders DisplayUserList if Seed Database button API call succeeds", async () => {
@@ -149,7 +98,7 @@ describe("Show Users", () => {
   });
 
   describe("if data is present during initial load", () => {
-    const data = { users };
+    const data = { users: mockUsers };
     beforeEach(() => {
       window.__INITIAL_STATE__ = data;
       wrapper = mountComponent({ ...initialProps });
@@ -167,8 +116,10 @@ describe("Show Users", () => {
 
       await Promise.resolve();
       wrapper.update();
-      expect(mockDeleteUser).toHaveBeenCalledWith(users[0]._id);
-      expect(setPopMessage).toHaveBeenCalledWith(successMessage);
+      expect(mockDeleteUser).toHaveBeenCalledWith(mockUsers[0]._id);
+      expect(mockSetPopMessage).toHaveBeenCalledWith(
+        "Successfully deleted Test."
+      );
     });
 
     describe("clicking on the Create New User button", () => {

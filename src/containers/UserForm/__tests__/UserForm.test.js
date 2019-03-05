@@ -1,19 +1,11 @@
 import UserForm from "../index";
-
-const cancelUpdate = jest.fn();
-const successMessage = { data: { message: "Successfully created Test!" } };
-const errorMessage = "Unable to complete that request!";
-const createUser = jest.fn(
-  success =>
-    new Promise((resolve, reject) => {
-      if (success) {
-        resolve(successMessage);
-      } else {
-        reject(errorMessage);
-      }
-    })
-);
-const updateUserList = jest.fn();
+import {
+  mockCancelUpdate,
+  mockCreateUser,
+  mockErrorMessage,
+  mockSuccessMessage,
+  mockUpdateUserList
+} from "../__mocks__/UserForm.mocks";
 
 const initialProps = {
   _id: "",
@@ -30,9 +22,9 @@ const initialProps = {
     state: "",
     zipCode: ""
   },
-  cancelUpdate,
-  submitAction: () => createUser("success"),
-  updateUserList
+  cancelUpdate: mockCancelUpdate,
+  submitAction: () => mockCreateUser("success"),
+  updateUserList: mockUpdateUserList
 };
 
 const initialState = {
@@ -82,8 +74,10 @@ describe("Create/Edit User Form", () => {
     wrapper.setState({ ...nextState });
     wrapper.find("form").simulate("submit");
     await Promise.resolve();
-    expect(createUser).toHaveBeenCalled();
-    expect(updateUserList).toHaveBeenCalled();
+    expect(mockCreateUser).toHaveBeenCalled();
+    expect(mockUpdateUserList).toHaveBeenCalledWith(
+      mockSuccessMessage.data.message
+    );
   });
 
   it("displays a field error if a field is empty when sumbitted", () => {
@@ -105,14 +99,14 @@ describe("Create/Edit User Form", () => {
         .find("div.cancelContainer")
         .find("button")
         .simulate("click");
-      expect(cancelUpdate).toHaveBeenCalled();
+      expect(mockCancelUpdate).toHaveBeenCalled();
     });
   });
 
   describe("displays a form error dialog box if API call fails", () => {
     beforeEach(async () => {
       wrapper.setState({ ...nextState });
-      wrapper.setProps({ submitAction: () => createUser() });
+      wrapper.setProps({ submitAction: () => mockCreateUser() });
       wrapper.find("form").simulate("submit");
       await Promise.resolve();
     });
@@ -120,7 +114,7 @@ describe("Create/Edit User Form", () => {
     it("renders", () => {
       wrapper.update();
       expect(wrapper.find("div.errorContainer")).toHaveLength(1);
-      expect(wrapper.find("p.errorStyle").text()).toContain(errorMessage);
+      expect(wrapper.find("p.errorStyle").text()).toContain(mockErrorMessage);
     });
 
     it("closes", () => {

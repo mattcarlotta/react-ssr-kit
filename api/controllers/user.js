@@ -13,7 +13,7 @@ module.exports = app => {
         await User.createUser(req.body);
         return res
           .status(201)
-          .json({ message: `Successfully created ${req.body.userName}` });
+          .json({ message: `Successfully created ${req.body.userName}.` });
       } catch (err) {
         if (err.toString().includes("E11000")) {
           return sendError(
@@ -31,7 +31,7 @@ module.exports = app => {
         await User.findByIdAndDelete(req.params.id, req.body);
         return res
           .status(201)
-          .json({ message: `Successfully deleted ${user.userName}` });
+          .json({ message: `Successfully deleted ${user.userName}.` });
       } catch (err) {
         return sendError(err, res, done);
       }
@@ -60,8 +60,15 @@ module.exports = app => {
         await User.findOneAndUpdate({ _id: req.params.id }, req.body);
         return res
           .status(201)
-          .json({ message: `Successfully updated ${req.body.userName}` });
+          .json({ message: `Successfully updated ${req.body.userName}.` });
       } catch (err) {
+        if (err.toString().includes("E11000")) {
+          return sendError(
+            "Error: That username is already in use!",
+            res,
+            done
+          );
+        }
         return sendError(err, res, done);
       }
     }
