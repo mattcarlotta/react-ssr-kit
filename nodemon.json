@@ -1,0 +1,3 @@
+{
+  "watch": ["api", "src/server.js", "src/utils/server/renderHtml.js"]
+}

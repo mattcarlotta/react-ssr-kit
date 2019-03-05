@@ -1,0 +1,28 @@
+{
+  "verbose": false,
+  "setupFiles": ["raf/polyfill"],
+  "setupFilesAfterEnv": ["<rootDir>/tools/jest/setup.js"],
+  "collectCoverageFrom": [
+    "src/app/**/*.js",
+    "src/pages/**/*.js",
+    "src/components/**/*.js",
+    "src/actions/**/*.js",
+    "src/reducers/**/*.js",
+    "!src/actions/index.js",
+    "!src/components/index.js",
+    "!src/pages/index.js",
+    "!src/pages/Home/index.js",
+    "!src/pages/UserInfo/index.js",
+    "!src/reducers/index.js"
+  ],
+  "moduleNameMapper": {
+    "\\.(css|scss)$": "identity-obj-proxy",
+    ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/jest/assetMock.js"
+  },
+  "moduleFileExtensions": ["css", "scss", "js", "json", "jsx"],
+  "transform": {
+    "^.+\\.(js|jsx)$": "babel-jest",
+    ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/node_modules/jest-css-modules-transform"
+  },
+  "testEnvironment": "jsdom"
+}
