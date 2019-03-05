@@ -134,7 +134,6 @@ If you wish to remove the API:
 - `public/assets` contains compiled, production build `.css`, `.map`, `.js`, and `.gz` files.
 - `public/loadable-assets.json` contains development file chunks.
 - `public/webpack-assets.json` contains production file chunks.
-- `public/assets` contains compiled, production build `.css`, `.map`, `.js`, and `.gz` files.
 - `src/client.js` client-side React setup.
 - `src/server.js` express server.
 - `src/styles/assets` media assets imports.
