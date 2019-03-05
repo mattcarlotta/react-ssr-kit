@@ -2,6 +2,7 @@ import { JSDOM } from "jsdom";
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {
+  createStoreFactory,
   checkProps,
   mountWrap,
   shallowWrap
@@ -29,6 +30,7 @@ global.document = document;
 global.window = document.defaultView;
 global.HTMLElement = window.HTMLElement;
 global.HTMLAnchorElement = window.HTMLAnchorElement;
+global.createStoreFactory = createStoreFactory;
 global.shallow = shallowWrap;
 global.mount = mountWrap;
 global.checkProps = checkProps;

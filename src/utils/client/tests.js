@@ -1,9 +1,26 @@
 import { shallow, mount } from "enzyme";
 import checkPropTypes from "check-prop-types";
+import thunk from "redux-thunk";
+import { createBrowserHistory } from "history";
+import { createStore, applyMiddleware } from "redux";
+import rootReducer from "../../reducers";
+
+const history = createBrowserHistory();
+const middlewares = applyMiddleware(thunk);
 
 //= =============================================================================//
 // CUSTOM TESTING FUNCTIONS                                                       /
 //= =============================================================================//
+
+/**
+ * Create a testing store with imported reducers, initial state, and middleware(s).
+ * globals: rootReducer, middlewares
+ * @function createStoreFactory
+ * @param {object} initialState - Initial store state.
+ * @returns {store} - redux store with
+ */
+export const createStoreFactory = initialState =>
+  createStore(rootReducer(history), initialState, middlewares);
 
 /**
  * Factory function to create a ShallowWrapper for a component
