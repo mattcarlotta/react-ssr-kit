@@ -11,7 +11,6 @@ import "./styles/globals/globals.scss";
 
 const history = createBrowserHistory(); // create browserhistory
 const initialState = window.__INITIAL_PROPS__; // grabs redux state from server on load
-delete window.__INITIAL_PROPS__;
 const store = configureStore(history, initialState); // sets up redux store with history and initial state
 
 Loadable.preloadReady().then(() => renderApp({ routes, history, store })); // react-loadable preloaded routes, history and store
