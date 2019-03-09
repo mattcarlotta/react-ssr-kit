@@ -1,5 +1,5 @@
 const { resolve } = require("path");
-const { currentDirectory } = require("../../envs");
+const { currentDirectory } = require("../envs");
 
 //= =============================================================================//
 // PATHS FOR WEBPACK DEVELOPMENT & PRODUCTION CONFIGS                            /

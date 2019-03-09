@@ -1,13 +1,9 @@
 const sass = require("node-sass");
 const AssetModuleHook = require("asset-require-hook");
 const CSSModuleHook = require("css-modules-require-hook");
-const postcssConfig = require("../../postcss.config");
+const postcssConfig = require("../postcss.config");
 const { srcDirectory } = require("./paths");
-const {
-  hashedMediaName,
-  inDevelopment,
-  localIdentName
-} = require("../../envs");
+const { hashedMediaName, inDevelopment, localIdentName } = require("../envs");
 
 //= =============================================================================//
 // HOOKS FOR WEBPACK DEVELOPMENT & PRODUCTION CONFIGS                            /

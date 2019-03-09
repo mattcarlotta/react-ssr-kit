@@ -4,7 +4,7 @@
 
 module.exports = app => {
   const webpack = require("webpack");
-  const webpackConfig = require("../../../tools/webpack/webpack.babel");
+  const webpackConfig = require("../../../webpack.babel");
   const compiler = webpack(webpackConfig);
   const webpackDevMiddleware = require("webpack-dev-middleware");
   const webpackHotMiddleware = require("webpack-hot-middleware");

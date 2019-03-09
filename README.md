@@ -26,6 +26,13 @@ Note: This a React SSR (Server Side Rendering) boilerplate! A React only boilerp
 ├── envs
 |   └── index.js
 |
+├── config
+|   ├── entry.js
+|   ├── hooks.js
+|   ├── paths.js
+|   ├── plugins.js
+|   └── rules.js
+|
 ├── public
 |   ├── assets
 |   ├── favicon.ico
@@ -51,8 +58,11 @@ Note: This a React SSR (Server Side Rendering) boilerplate! A React only boilerp
 |   ├── types
 |   ├── utils
 |   |   ├── client
-|   |   |   ├── axiosConfig.js
 |   |   |   ├── mocks
+|   |   |   ├── jest
+|   |   |   |   ├── assetMock.js
+|   |   |   |   └── setup.js
+|   |   |   ├── axiosConfig.js
 |   |   |   ├── renderApp.js
 |   |   |   └── tests.js
 |   |   |
@@ -67,21 +77,9 @@ Note: This a React SSR (Server Side Rendering) boilerplate! A React only boilerp
 |   ├── client.js
 |   └── server.js
 |
-├── tools
-|   ├── jest
-|   |   ├── assetMock.js
-|   |   └── setup.js
-|   |
-|   └── webpack
-|       ├── entry.js
-|       ├── hooks.js
-|       ├── paths.js
-|       ├── plugins.js
-|       ├── rules.js
-|       └── webpack.babel.js
-|
 ├── index.js
-└── postcss.config.js
+├── postcss.config.js
+└── webpack.babel.js
 ```
 
 ## Installation
@@ -142,8 +140,10 @@ If you wish to remove the API:
 - `src/styles/globals` global asset imports (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/styles/globals/globals.scss#L1-L30">global.scss</a> for important information).
 - `src/styles/variables` partial shared variables.
 - `src/styles/styles.scss` indexed partial files for easier sharing (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/styles/styles.scss#L1-L39">styles.scss</a> for important information).
-- `src/utils/client/axiosConfig.js` client-side axios setup (must point to the correct `HOST`/`PORT` for the running environment).
+- `src/utils/client/jest/assetMock.js` jest mocks for media imports.
+- `src/utils/client/jest/setup.js` jest test setup environment (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/tools/jest/setup.js#L17-L25">setup.js</a> for important information).
 - `src/utils/client/mocks` client-side global mocks for testing.
+- `src/utils/client/axiosConfig.js` client-side axios setup (must point to the correct `HOST`/`PORT` for the running environment).
 - `src/utils/client/renderApp.js` client-side React setup.
 - `src/utils/client/tests.js` custom functions tests to leverage `mount`, `shallow`, and `checkPropsTypes` (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/utils/client/tests.js">tests.js</a> for utilization).
 - `src/utils/client/middlewares.js` express middlewares.
@@ -152,14 +152,12 @@ If you wish to remove the API:
 - `src/utils/server/serveReact.js` server side rendering setup to serve React to the client-side.
 - `src/utils/server/setupDevServer.js` webpack setup for client-side compilation and hot module replacement.
 - `src/utils/server/startServer.js` starts express server.
-- `tools/jest/assetMock.js` jest mocks for media imports.
-- `tools/jest/setup.js` jest test setup environment (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/tools/jest/setup.js#L17-L25">setup.js</a> for important information).
-- `tools/webpack/entry.js` webpack entry variables.
-- `tools/webpack/hooks.js` webpack hooks for handling SASS/CSS and media imports.
-- `tools/webpack/paths.js` webpack config folder paths.
-- `tools/webpack/plugins.js` webpack plugins required for development or production.
-- `tools/webpack/rules.js` webpack rules testing.
-- `tools/webpack/webpack.babel.js` webpack config for both development and production environments (must be `.babel.js` to accept ES6 `import/export`).
+- `config/entry.js` webpack entry variables.
+- `config/hooks.js` webpack hooks for handling SASS/CSS and media imports.
+- `config/paths.js` webpack config folder paths.
+- `config/plugins.js` webpack plugins required for development or production.
+- `config/rules.js` webpack rules testing.
+- `webpack.babel.js` webpack config for both development and production environments (must be `.babel.js` to accept ES6 `import/export`).
 
 ## Packages Incorporated
 

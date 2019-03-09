@@ -1,12 +1,8 @@
 import { JSDOM } from "jsdom";
 import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import {
-  createStoreFactory,
-  mountWrap,
-  shallowWrap
-} from "../../src/utils/client/tests";
-import mockAxios from "../../src/utils/client/mocks/axios";
+import { createStoreFactory, mountWrap, shallowWrap } from "../tests";
+import mockAxios from "../mocks/axios";
 
 configure({ adapter: new Adapter() });
 

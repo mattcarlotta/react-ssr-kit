@@ -1,7 +1,7 @@
 {
   "verbose": false,
   "setupFiles": ["raf/polyfill"],
-  "setupFilesAfterEnv": ["<rootDir>/tools/jest/setup.js"],
+  "setupFilesAfterEnv": ["<rootDir>/src/utils/client/jest/setup.js"],
   "collectCoverageFrom": [
     "src/app/**/*.js",
     "src/pages/**/*.js",
@@ -17,7 +17,7 @@
   ],
   "moduleNameMapper": {
     "\\.(css|scss)$": "identity-obj-proxy",
-    ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/jest/assetMock.js"
+    ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/utils/client/jest/assetMock.js"
   },
   "moduleFileExtensions": ["css", "scss", "js", "json", "jsx"],
   "transform": {

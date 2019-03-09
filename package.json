@@ -47,13 +47,13 @@
       }
     },
     "build": {
-      "command": "webpack --progress --hide-modules --config ./tools/webpack/webpack.babel.js",
+      "command": "webpack --progress --hide-modules --config ./webpack.babel.js",
       "env": {
         "NODE_ENV": "production"
       }
     },
     "analyze": {
-      "command": "webpack -p --progress --hide-modules --config ./tools/webpack/webpack.babel.js",
+      "command": "webpack -p --progress --hide-modules --config ./webpack.babel.js",
       "env": {
         "NODE_ENV": "analyze"
       }

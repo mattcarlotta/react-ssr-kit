@@ -1,4 +1,4 @@
-import { inDevelopment, showErrorOverlay } from "../../envs";
+import { inDevelopment, showErrorOverlay } from "../envs";
 
 //= =============================================================================//
 // ENTRY SETUP FOR WEBPACK DEVELOPMENT & PRODUCTION                               /

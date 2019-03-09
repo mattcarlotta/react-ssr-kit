@@ -14,7 +14,7 @@ import FriendlyErrorsWebpackPlugin from "friendly-errors-webpack-plugin";
 import WebpackBar from "webpackbar";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import { ReactLoadablePlugin } from "react-loadable/webpack";
-import { inDevelopment, nodeENV, PORT } from "../../envs";
+import { inDevelopment, nodeENV, PORT } from "../envs";
 import { loadableAssets, webpackAssets } from "./paths";
 
 //= =============================================================================//

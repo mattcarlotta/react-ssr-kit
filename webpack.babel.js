@@ -1,8 +1,8 @@
-import getPlugins from "./plugins";
-import getEntry from "./entry";
-import rules from "./rules";
-import { inDevelopment } from "../../envs";
-import { currentDirectory, publicAssets } from "./paths";
+import getPlugins from "./config/plugins";
+import getEntry from "./config/entry";
+import rules from "./config/rules";
+import { inDevelopment } from "./envs";
+import { currentDirectory, publicAssets } from "./config/paths";
 
 //= =============================================================================//
 // WEBPACK DEVELOPMENT & PRODUCTION CONFIGS                                      /
