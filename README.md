@@ -167,7 +167,7 @@ If you wish to remove the API:
 
 ## Packages Incorporated
 
-These packages are updated by an automated script that can be found <a href="https://github.com/mattcarlotta/UpdateBoilerplate">here</a>. To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/package.json#L108-L215">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/react-srr-kit/issues">here</a>.
+These packages are updated by an automated script that can be found <a href="https://github.com/mattcarlotta/UpdateBoilerplate">here</a>. To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/package.json#L108-L215">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/react-ssr-kit/issues">here</a>.
 
 - [Axios](https://github.com/axios/axios)
 - [Babel](https://github.com/babel/babel)
