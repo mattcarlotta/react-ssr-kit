@@ -25,11 +25,9 @@
     "lint:style": "better-npm-run lint:style",
     "test": "better-npm-run test",
     "test:watch": "better-npm-run test:watch",
-    "test:update-snapshot": "better-npm-run test -u",
     "clean": "npm-run-all clean:build clean:test",
     "clean:build": "better-npm-run clean:build",
-    "clean:test": "better-npm-run clean:test",
-    "coveralls": "better-npm-run clean:test && better-npm-run coveralls"
+    "clean:test": "better-npm-run clean:test"
   },
   "betterScripts": {
     "dev": {
@@ -81,9 +79,6 @@
     },
     "clean:test": {
       "command": "rimraf ./coverage"
-    },
-    "coveralls": {
-      "command": "cat ./coverage/lcov.info | coveralls"
     }
   },
   "husky": {
@@ -97,8 +92,14 @@
       "jest --config ./jest.json /src",
       "git add"
     ],
-    "*.css": "stylelint",
-    "*.{scss,sass}": "stylelint --syntax=scss",
+    "*.css": [
+      "stylelint",
+      "git add"
+    ],
+    "*.{scss,sass}": [
+      "stylelint --syntax=scss",
+      "git add"
+    ],
     "*.{json,md}": [
       "prettier --write",
       "git add"

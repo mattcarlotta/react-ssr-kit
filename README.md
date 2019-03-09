@@ -1,8 +1,6 @@
-## Webpack React SSR Boilerplate
+## React SSR Kit
 
 ![XhgJKxh.png](https://i.imgur.com/XhgJKxh.png)
-
-Note: This a React SSR (Server Side Rendering) boilerplate! A React only boilerplate can be found on the <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/tree/master">master</a> branch or a React Hot Loaded boilerplate can be found on the <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/tree/hotloaded">hotloaded</a> branch, or a fullstack M.E.R.N boilerplate can be found on the <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/tree/fullstack">fullstack</a> branch.
 
 ## Table of contents
 
@@ -87,7 +85,7 @@ Note: This a React SSR (Server Side Rendering) boilerplate! A React only boilerp
 1 - Clone the boilerplate `ssr` repository.
 
 ```
- git clone -b ssr git@github.com:mattcarlotta/Webpack-React-Boilerplate.git
+ git clone -b ssr git@github.com:mattcarlotta/react-ssr-kit.git
 ```
 
 2 - Run `npm install` or `yarn install` to install dependencies.
@@ -96,13 +94,21 @@ Note: This a React SSR (Server Side Rendering) boilerplate! A React only boilerp
 
 ## Commands
 
-To lint your .js/.scss files, run `npm run lint` while at the application's root directory.
-
-To run your tests, while inside the client's root directory, run `npm run test` to run tests create a `coverage` folder. Or run `npm run test:watch` to watch all your changes in the `.test.js` files. To view the current coverage report, navigate to `coverage/Icov-report/src` and open `index.html` in a browser.
-
-To build and bundle your client resources for production, while inside the client's root directory, use `npm run build` (source maps will be excluded). After you have built your React application for production, use `npm start` while at the application's root directory. You should now see your React application running on `http://localhost:3000`.
-
-To see more script commands, please check out the <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/b799752d789526a0eac8b5b8a477843f6382fa92/package.json#L18-L33">package.json</a>.
+| `yarn <command>` | Description                                                              |
+| ---------------- | ------------------------------------------------------------------------ |
+| `dev`            | Starts a development server at `localhost:3000`.                         |
+| `start`          | Starts a production server at `localhost:8080` (must run `build` first). |
+| `build`          | Compiles application to a `public` folder.                               |
+| `analyze`        | Compiles a chunk distribution chart for review.                          |
+| `lint:js`        | Lint all `.js` and `.scss` files.                                        |
+| `lint:js`        | Lint all `.js` files.                                                    |
+| `lint:styles`    | Lint all `.scss` files.                                                  |
+| `test`           | Runs all `.test.js` files once and produces a coverage.                  |
+| `test:watch`     | Runs and watches all `.test.js` files.                                   |
+| `test:coverage`  | Runs a coverage report for `.test.js` files.                             |
+| `clean`          | Removes all compiled code and coverage reports.                          |
+| `clean:build`    | Removes all compiled code.                                               |
+| `clean:test`     | Removes all coverage reports.                                            |
 
 ## Example API
 
@@ -116,7 +122,7 @@ If you wish to utilize the API:
 If you wish to remove the API:
 
 - Delete the `api` folder.
-- In `src/server.js` remove <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/server.js#L7">line 7<a/> and remove <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/server.js#L18">line 18</a>.
+- In `src/server.js` remove <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/src/server.js#L7">line 7<a/> and remove <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/src/server.js#L18">line 18</a>.
 - Type `npm uninstall -S bluebird body-parser consign mongoose` or `yarn remove bluebird body-parser consign mongoose` to remove its dependencies.
 
 ## Configuration
@@ -137,15 +143,15 @@ If you wish to remove the API:
 - `src/server.js` express server.
 - `src/styles/assets` media assets imports.
 - `src/styles/extensions` partial shared extensions.
-- `src/styles/globals` global asset imports (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/styles/globals/globals.scss#L1-L30">global.scss</a> for important information).
+- `src/styles/globals` global asset imports (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/src/styles/globals/globals.scss#L1-L30">global.scss</a> for important information).
 - `src/styles/variables` partial shared variables.
-- `src/styles/styles.scss` indexed partial files for easier sharing (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/styles/styles.scss#L1-L39">styles.scss</a> for important information).
+- `src/styles/styles.scss` indexed partial files for easier sharing (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/src/styles/styles.scss#L1-L39">styles.scss</a> for important information).
 - `src/utils/client/jest/assetMock.js` jest mocks for media imports.
-- `src/utils/client/jest/setup.js` jest test setup environment (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/tools/jest/setup.js#L17-L25">setup.js</a> for important information).
+- `src/utils/client/jest/setup.js` jest test setup environment (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/tools/jest/setup.js#L17-L25">setup.js</a> for important information).
 - `src/utils/client/mocks` client-side global mocks for testing.
 - `src/utils/client/axiosConfig.js` client-side axios setup (must point to the correct `HOST`/`PORT` for the running environment).
 - `src/utils/client/renderApp.js` client-side React setup.
-- `src/utils/client/tests.js` custom functions tests to leverage `mount`, `shallow`, and `checkPropsTypes` (see notes in <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/utils/client/tests.js">tests.js</a> for utilization).
+- `src/utils/client/tests.js` custom functions tests to leverage `mount`, `shallow`, and `checkPropsTypes` (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/src/utils/client/tests.js">tests.js</a> for utilization).
 - `src/utils/client/middlewares.js` express middlewares.
 - `src/utils/server/renderHtml.js` factory function to rewrite client-side DOM structure.
 - `src/utils/server/serveProdAssets.js` serves compiled webpack production assets.
@@ -161,7 +167,7 @@ If you wish to remove the API:
 
 ## Packages Incorporated
 
-These packages are updated by an automated script that can be found <a href="https://github.com/mattcarlotta/UpdateBoilerplate">here</a>. To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/package.json#L107-L213">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/issues">here</a>.
+These packages are updated by an automated script that can be found <a href="https://github.com/mattcarlotta/UpdateBoilerplate">here</a>. To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/package.json#L108-L215">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/react-srr-kit/issues">here</a>.
 
 - [Axios](https://github.com/axios/axios)
 - [Babel](https://github.com/babel/babel)
@@ -203,6 +209,6 @@ These packages are updated by an automated script that can be found <a href="htt
 ⚠️ `react-router`, `react-router-dom`, and `react-router-config` **MUST** be the same version. If any of them are different versions from each other, then you'll get this <a href="https://i.imgur.com/hH3Z7sS.png">reference error</a>. However, if you're still getting the issue, here's a <a href="https://github.com/ReactTraining/react-router/issues/6610#issuecomment-470005341">work-around</a>.
 
 ⚠️ React Hot Loader throws a warning if you use `react-dom` instead of `@hot-loader/react-dom`: <a href="https://stackoverflow.com/a/54816859/7376526">react-🔥-dom patch is not detected. React 16.6+ features may not work.</a>
-By default, React Hot loader has been disabled. If you wish to utilize React Hot Loader, then follow these <a href="https://github.com/hot-loader/react-dom#webpack">instructions to resolve hot-loader/react-dom</a> inside of <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/tools/webpack/webpack.babel.js">tools/webpack/webpack.babel.config</a>. In addition, in `src/components/app/App.js` you must uncomment <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/components/App/App.js#L5">line 5</a> and <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/components/App/App.js#L29">line 29</a>; as well as, in `src/root` you must uncomment <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/root/index.js#L4">line 4</a> and wrap <a href="https://github.com/mattcarlotta/Webpack-React-Boilerplate/blob/ssr/src/root/index.js#L10-L12">lines 10-12<a/> with an `<AppContainer>...</AppContainer>`. If the process is already running, you must stop and restart it.
+By default, React Hot loader has been disabled. If you wish to utilize React Hot Loader, then follow these <a href="https://github.com/hot-loader/react-dom#webpack">instructions to resolve hot-loader/react-dom</a> inside of <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/tools/webpack/webpack.babel.js">tools/webpack/webpack.babel.config</a>. In addition, in `src/components/app/App.js` you must uncomment <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/src/components/App/App.js#L5">line 5</a> and <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/src/components/App/App.js#L29">line 29</a>; as well as, in `src/root` you must uncomment <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/src/root/index.js#L4">line 4</a> and wrap <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/src/root/index.js#L10-L12">lines 10-12<a/> with an `<AppContainer>...</AppContainer>`. If the process is already running, you must stop and restart it.
 
 ⚠️ ReactLoadablePlugin throws two deprecation warnings during compilation: <a href="https://github.com/jamiebuilds/react-loadable/pull/140">DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead. DeprecationWarning: Chunk.forEachModule: Use for(const module of chunk.modulesIterable) instead.</a>

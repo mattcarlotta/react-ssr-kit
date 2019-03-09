@@ -15,8 +15,8 @@ const Home = () => (
     <Helmet title="Home" />
     <div className={logoContainer}>
       <img className={logoStyle} src={logo} alt="ssrLogoLight.png" />
-      <h1 className={textInfo}>Webpack SSR Boilerplate</h1>
-      <h1 className={textInfo}>Edit ./components and save to reload.</h1>
+      <h1 className={textInfo}>React SSR Kit</h1>
+      <h1 className={textInfo}>Edit files in ./src and save to reload.</h1>
       <Link style={{ marginTop: 10 }} to="/users">
         <ExampleIcon />
         <span>See Example</span>
