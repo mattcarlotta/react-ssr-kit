@@ -1,15 +1,15 @@
 {
-  "name": "Webpack-React-Boilerplate",
-  "version": "",
-  "description": "",
+  "name": "React SSR Kit",
+  "version": "1.0.0",
+  "description": "A Server Side Rendering boilerplate.",
   "main": "index.js",
   "engines": {
     "node": ">=10",
     "npm": ">=6"
   },
-  "author": "",
+  "author": "Matt Carlotta",
   "license": "MIT",
-  "homepage": "",
+  "repository": "https://github.com/mattcarlotta/react-ssr-kit",
   "sideEffects": [
     "*.css",
     "*.scss",
