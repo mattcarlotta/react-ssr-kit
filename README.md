@@ -123,7 +123,7 @@ If you wish to remove the API:
 
 - Delete the `api` folder.
 - In `src/server.js` remove <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/src/server.js#L7">line 7<a/> and remove <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/ssr/src/server.js#L18">line 18</a>.
-- Type `yarn remove bluebird body-parser consign mongoose` to remove its dependencies.
+- Run `yarn remove bluebird body-parser consign mongoose` to remove its dependencies.
 
 ## Configuration
 
