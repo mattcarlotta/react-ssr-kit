@@ -58,10 +58,10 @@ Note: This a React SSR (Server Side Rendering) boilerplate! A React only boilerp
 |   ├── types
 |   ├── utils
 |   |   ├── client
-|   |   |   ├── mocks
 |   |   |   ├── jest
 |   |   |   |   ├── assetMock.js
 |   |   |   |   └── setup.js
+|   |   |   ├── mocks
 |   |   |   ├── axiosConfig.js
 |   |   |   ├── renderApp.js
 |   |   |   └── tests.js
