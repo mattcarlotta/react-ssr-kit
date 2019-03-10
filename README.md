@@ -206,7 +206,7 @@ To see the latest package versions, please check out the <a href="https://github
 
 ## Known Issues
 
-⚠️ `react-router`, `react-router-dom`, and `react-router-config` **MUST** be the same version. If any of them are different versions from each other, then you'll get this <a href="https://i.imgur.com/hH3Z7sS.png">reference error</a>. However, if you're still getting the issue, here's a work around (NOTE: I published a temporary fix, as such, this package **will not** be maintained and should only be used for **development purposes only**. The package is `react-router-dom` with the patch added, so technically you don't need `react-router-dom` as a dependency. However, if `react-router-dom` is ever updated beyond 4.4.0-beta.7, remove this package.):
+⚠️ `react-router`, `react-router-dom`, and `react-router-config` should be the same version. If any of them are different versions from each other, then you'll may get this <a href="https://i.imgur.com/hH3Z7sS.png">reference error</a>. However, if you're still getting the issue, here's a work around (NOTE: I published a temporary fix, as such, this package **will not** be maintained and should only be used for **development purposes only**. The package is `react-router-dom` with the patch added, so technically you don't need `react-router-dom` as a dependency. However, if `react-router-dom` is ever updated beyond 4.4.0-beta.7, remove this package.):
 
 - Run `yarn add temp-react-router-dom`.
 - In <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/webpack.babel.js#L39-L43">webpack.babel.js</a> replace the highlighted lines with the following code snippet:
