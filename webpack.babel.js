@@ -8,15 +8,31 @@ import { currentDirectory, publicAssets } from "./config/paths";
 // WEBPACK DEVELOPMENT & PRODUCTION CONFIGS                                      /
 //= =============================================================================//
 
+const chunkOptions = !inDevelopment
+  ? {
+      minSize: 60000,
+      maxSize: 250000,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        }
+      }
+    }
+  : {};
+
 module.exports = {
   mode: inDevelopment ? "development" : "production",
   devtool: inDevelopment ? "cheap-module-source-map" : "hidden-source-map",
   context: currentDirectory,
   entry: getEntry(),
   optimization: {
+    // runtimeChunk: "single",
     splitChunks: {
       // Auto split vendor modules in production only
-      chunks: inDevelopment ? "async" : "all"
+      chunks: inDevelopment ? "async" : "all",
+      ...chunkOptions
     }
   },
   output: {
@@ -26,7 +42,7 @@ module.exports = {
     filename: inDevelopment ? "[name].js" : "[name].[chunkhash:8].js",
     chunkFilename: inDevelopment
       ? "[id].chunk.js"
-      : "[id].[chunkhash:8].chunk.js",
+      : "[name].[chunkhash:8].chunk.js",
     pathinfo: inDevelopment
   },
   module: { rules },

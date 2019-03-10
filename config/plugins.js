@@ -37,7 +37,7 @@ export default () => {
       filename: inDevelopment ? "[name].css" : "[name].[contenthash:8].css",
       chunkFilename: inDevelopment
         ? "[id].chunk.css"
-        : "[id].[contenthash:8].chunk.css"
+        : "[name].[contenthash:8].chunk.css"
     }),
     // Setup enviornment variables for client
     new EnvironmentPlugin({ NODE_ENV: JSON.stringify(nodeENV) }),
