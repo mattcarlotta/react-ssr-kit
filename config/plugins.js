@@ -64,7 +64,7 @@ export default () => {
           ],
           notes: [
             "Note that the development build is not optimized.",
-            "To create a production build, use \x1b[1m\x1b[32mnpm run build\x1b[0m.\n"
+            "To create a production build, use \x1b[1m\x1b[32myarn build\x1b[0m.\n"
           ]
         },
         clearConsole: true
