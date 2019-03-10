@@ -82,7 +82,7 @@
 
 ## Installation
 
-1 - Clone the boilerplate `ssr` repository.
+1 - Clone the boilerplate repository.
 
 ```
  git clone git@github.com:mattcarlotta/react-ssr-kit.git
