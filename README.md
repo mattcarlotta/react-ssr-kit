@@ -209,8 +209,11 @@ To see the latest package versions, please check out the <a href="https://github
 ⚠️ `react-router-dom` throws a <a href="https://i.imgur.com/hH3Z7sS.png">reference error</a>. If you're getting this error, then here's a work around:
 
 Step 1: Run `yarn add -D babel-plugin-module-resolver`.
+
 Step 2: _OPTIONAL_ - Run `yarn remove react-router-dom`.
+
 Step 3: Run `yarn add temp-react-router-dom`.
+
 Step 4: In the [babel.config.js](https://github.com/mattcarlotta/react-ssr-kit/blob/master/babel.config.js#L14-L20) file, add the following to the `plugins`:
 
 ```
