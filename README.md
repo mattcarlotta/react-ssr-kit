@@ -220,11 +220,11 @@ Step 4: In the [babel.config.js](https://github.com/mattcarlotta/react-ssr-kit/b
 const plugins = [
     [
     "module-resolver",
-    {
-      "alias": {
-        "react-router-dom": "temp-react-router-dom"
+      {
+        "alias": {
+          "react-router-dom": "temp-react-router-dom"
+        }
       }
-    }
     ],
     "react-loadable/babel",
     "dynamic-import-node",
