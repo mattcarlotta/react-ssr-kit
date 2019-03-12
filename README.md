@@ -208,21 +208,30 @@ To see the latest package versions, please check out the <a href="https://github
 
 ⚠️ `react-router-dom` throws a <a href="https://i.imgur.com/hH3Z7sS.png">reference error</a>. If you're getting this error, then here's a work around:
 
-- Run `yarn add temp-react-router-dom`.
-- In <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/webpack.babel.js#L39-L43">webpack.babel.js</a> replace the highlighted lines with the following code snippet:
+Step 1: Run `yarn add -D babel-plugin-module-resolver`.
+Step 2: _OPTIONAL_ - Run `yarn remove react-router-dom`.
+Step 3: Run `yarn add temp-react-router-dom`.
+Step 4: In the [babel.config.js](https://github.com/mattcarlotta/react-ssr-kit/blob/master/babel.config.js#L14-L20) file, add the following to the `plugins`:
 
 ```
-  resolve: {
-    alias: {
-      "react-router-dom": "temp-react-router-dom"
-    },
-    modules: ["src", "node_modules"],
-    descriptionFiles: ["package.json"],
-    extensions: [".js", ".jsx", ".json", ".scss"]
-  },
+const plugins = [
+    [
+    "module-resolver",
+    {
+      "alias": {
+        "react-router-dom": "temp-react-router-dom"
+      }
+    }
+    ],
+    "react-loadable/babel",
+    "dynamic-import-node",
+    "lodash",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import"
+  ];
 ```
 
-- Continue to import components from `react-router-dom` like normal.
+Step 5: Continue to use `react-router-dom` for `import` statements.
 
 **NOTE**: I published `temp-react-router-dom` as a temporary fix, as such, this package **will not** be maintained and should only be used for **development purposes only**. The package is `react-router-dom` with a <a href="https://github.com/ReactTraining/react-router/issues/6610#issuecomment-470005341">patch</a> added, so technically you don't need `react-router-dom` as a dependency. However, if `react-router-dom` is ever updated beyond `4.4.0-beta.7`, then remove this package!
 
