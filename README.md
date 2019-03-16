@@ -206,38 +206,6 @@ To see the latest package versions, please check out the <a href="https://github
 
 ## Known Issues
 
-⚠️ `react-router-dom` throws a <a href="https://i.imgur.com/hH3Z7sS.png">reference error</a>. If you're getting this error, then here's a work around:
-
-Step 1: Run `yarn add -D babel-plugin-module-resolver`.
-
-Step 2: _OPTIONAL_ - Run `yarn remove react-router-dom`.
-
-Step 3: Run `yarn add temp-react-router-dom`.
-
-Step 4: In the [babel.config.js](https://github.com/mattcarlotta/react-ssr-kit/blob/master/babel.config.js#L14-L20) file, add the following to the `plugins`:
-
-```
-const plugins = [
-    [
-    "module-resolver",
-      {
-        "alias": {
-          "react-router-dom": "temp-react-router-dom"
-        }
-      }
-    ],
-    "react-loadable/babel",
-    "dynamic-import-node",
-    "lodash",
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-syntax-dynamic-import"
-  ];
-```
-
-Step 5: Continue to use `react-router-dom` for `import` statements.
-
-**NOTE**: I published `temp-react-router-dom` as a temporary fix, as such, this package **will not** be maintained and should only be used for **development purposes only**. The package is `react-router-dom` with a <a href="https://github.com/ReactTraining/react-router/issues/6610#issuecomment-470005341">patch</a> added, so technically you don't need `react-router-dom` as a dependency. However, if `react-router-dom` is ever updated beyond `4.4.0-beta.7`, then remove this package!
-
 ⚠️ React Hot Loader throws a warning if you use `react-dom` instead of `@hot-loader/react-dom`: <a href="https://stackoverflow.com/a/54816859/7376526">react-🔥-dom patch is not detected. React 16.6+ features may not work.</a>
 By default, React Hot loader has been disabled. If you wish to utilize React Hot Loader, then follow these <a href="https://github.com/hot-loader/react-dom#webpack">instructions to resolve hot-loader/react-dom</a> inside of <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/webpack.babel.js#L55-L59">webpack.babel.config</a>. In addition, in `src/components/app/App.js` you must uncomment <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/components/App/App.js#L5">line 5</a> and <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/components/App/App.js#L29">line 29</a>; as well as, in `src/root` you must uncomment <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/root/index.js#L4">line 4</a> and wrap <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/root/index.js#L10-L12">lines 10-12<a/> with an `<AppContainer>...</AppContainer>`. If the process is already running, you must stop and restart it.
 
