@@ -103,6 +103,7 @@
 | `lint:js`        | Lint all `.js` and `.scss` files.                                        |
 | `lint:js`        | Lint all `.js` files.                                                    |
 | `lint:styles`    | Lint all `.scss` files.                                                  |
+| `remove:api`     | Removes the `api` folder, its related deps, and updates `package.json`.  |
 | `test`           | Runs all `.test.js` files once and produces a coverage.                  |
 | `test:watch`     | Runs and watches all `.test.js` files.                                   |
 | `test:coverage`  | Runs a coverage report for `.test.js` files.                             |
@@ -121,9 +122,7 @@ If you wish to utilize the API:
 
 If you wish to remove the API:
 
-- Delete the `api` folder.
-- In `src/server.js` remove <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/server.js#L7">line 7<a/> and remove <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/server.js#L18">line 18</a>.
-- Run `yarn remove bluebird body-parser consign mongoose` to remove its dependencies.
+- Run `yarn remove:api` to remove the API and its dependencies.
 
 ## Configuration
 
