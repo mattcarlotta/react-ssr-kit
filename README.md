@@ -20,7 +20,6 @@
 
 ## Project Structure
 
-<br />
 <details>
 <summary>Click to expand project structure</summary>
 <pre><code>
@@ -131,46 +130,47 @@ If you wish to remove the API:
 
 ## Configuration
 
-<br />
 <details>
 <summary>Click to expand configuration</summary>
-- `.browserslistrc` config to share target browsers between different front-end tools.
-- `.estlintignore` eslist config to ignore the files and folders specified.
-- `.eslintrc.js` eslint config.
-- `babel.config.js` babel config.
-- `jest.json` jest config.
-- `nodemon.json` nodemon config.
-- `postcss.config.js` postcss config.
-- `stylint.config.js` stylelint config.
-- `envs/index.js` node and webpack environment variables.
-- `public/assets` contains compiled, production build `.css`, `.map`, `.js`, and `.gz` files.
-- `public/loadable-assets.json` contains development file chunks.
-- `public/webpack-assets.json` contains production file chunks.
-- `src/client.js` client-side React setup.
-- `src/server.js` express server.
-- `src/styles/assets` media assets imports.
-- `src/styles/extensions` partial shared extensions.
-- `src/styles/globals` global asset imports (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/styles/globals/globals.scss#L1-L30">global.scss</a> for important information).
-- `src/styles/variables` partial shared variables.
-- `src/styles/styles.scss` indexed partial files for easier sharing (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/styles/styles.scss#L1-L39">styles.scss</a> for important information).
-- `src/utils/client/jest/assetMock.js` jest mocks for media imports.
-- `src/utils/client/jest/setup.js` jest test setup environment (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/utils/client/jest/setup.js#L13-L21">setup.js</a> for important information).
-- `src/utils/client/mocks` client-side global mocks for testing.
-- `src/utils/client/axiosConfig.js` client-side axios setup (must point to the correct `HOST`/`PORT` for the running environment).
-- `src/utils/client/renderApp.js` client-side React setup.
-- `src/utils/client/tests.js` custom functions tests to leverage `mount`, `shallow`, and `createStoreFactory` (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/utils/client/tests.js">tests.js</a> for utilization).
-- `src/utils/client/middlewares.js` express middlewares.
-- `src/utils/server/renderHtml.js` factory function to rewrite client-side DOM structure.
-- `src/utils/server/serveProdAssets.js` serves compiled webpack production assets.
-- `src/utils/server/serveReact.js` server side rendering setup to serve React to the client-side.
-- `src/utils/server/setupDevServer.js` webpack setup for client-side compilation and hot module replacement.
-- `src/utils/server/startServer.js` starts express server.
-- `config/entry.js` webpack entry variables.
-- `config/hooks.js` webpack hooks for handling SASS/CSS and media imports.
-- `config/paths.js` webpack config folder paths.
-- `config/plugins.js` webpack plugins required for development or production.
-- `config/rules.js` webpack rules testing.
-- `webpack.babel.js` webpack config for both development and production environments (must be `.babel.js` to accept ES6 `import/export`).
+<pre><code>
+- .browserslistrc: config to share target browsers between different front-end tools.
+- .estlintignore: eslist config to ignore the files and folders specified.
+- .eslintrc.js: eslint config.
+- babel.config.js: babel config.
+- jest.json: jest config.
+- nodemon.json: nodemon config.
+- postcss.config.js: postcss config.
+- stylint.config.js: stylelint config.
+- envs/index.js: node and webpack environment variables.
+- public/assets: contains compiled, production build `.css`, `.map`, `.js`, and `.gz` files.
+- public/loadable-assets.json: contains development file chunks.
+- public/webpack-assets.json: contains production file chunks.
+- src/client.js: client-side React setup.
+- src/server.js: express server.
+- src/styles/assets: media assets imports.
+- src/styles/extensions: partial shared extensions.
+- src/styles/globals: global asset imports (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/styles/globals/globals.scss#L1-L30">global.scss</a> for important information).
+- src/styles/variables: partial shared variables.
+- src/styles/styles.scss: indexed partial files for easier sharing (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/styles/styles.scss#L1-L39">styles.scss</a> for important information).
+- src/utils/client/jest/assetMock.js: jest mocks for media imports.
+- src/utils/client/jest/setup.js: jest test setup environment (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/utils/client/jest/setup.js#L13-L21">setup.js</a> for important information).
+- src/utils/client/mocks: client-side global mocks for testing.
+- src/utils/client/axiosConfig.js: client-side axios setup (must point to the correct `HOST`/`PORT` for the running environment).
+- src/utils/client/renderApp.js: client-side React setup.
+- src/utils/client/tests.js: custom functions tests to leverage `mount`, `shallow`, and `createStoreFactory` (see notes in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/utils/client/tests.js">tests.js</a> for utilization).
+- src/utils/client/middlewares.js: express middlewares.
+- src/utils/server/renderHtml.js: factory function to rewrite client-side DOM structure.
+- src/utils/server/serveProdAssets.js: serves compiled webpack production assets.
+- src/utils/server/serveReact.js: server side rendering setup to serve React to the client-side.
+- src/utils/server/setupDevServer.js: webpack setup for client-side compilation and hot module replacement.
+- src/utils/server/startServer.js: starts express server.
+- config/entry.js: webpack entry variables.
+- config/hooks.js: webpack hooks for handling SASS/CSS and media imports.
+- config/paths.js: webpack config folder paths.
+- config/plugins.js: webpack plugins required for development or production.
+- config/rules.js: webpack rules testing.
+- webpack.babel.js: webpack config for both development and production environments (must be `.babel.js` to accept ES6 `import/export`).
+</code></pre>
 </details>
 <br />
 
