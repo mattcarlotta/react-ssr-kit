@@ -2,67 +2,52 @@ const fs = require("fs-extra");
 const commandExists = require("command-exists");
 const { execSync } = require("child_process");
 
-const apiDir = "./api";
 const serverDir = "./src/server.js";
 const packageJSONDir = "./package.json";
-const removeAPIDir = "./removeAPI.js";
 
-const displayError = err => console.log("--[ERROR]-- \n", err.toString());
+const displayError = err => console.log(`--[ERROR]-- \n ${err.toString()}`);
 
 const execute = command => execSync(command, { stdio: "ignore" });
 
-const updateDependencies = () =>
-  new Promise((resolve, reject) => {
-    try {
-      if (commandExists("yarn")) {
-        execute("yarn install");
-      } else {
-        execute("npm install");
-      }
-      resolve();
-    } catch (err) {
-      reject(err);
-    }
-  });
+const readFromFile = path => fs.readFile(path, "utf8");
 
-const removeUnusedDependencies = () =>
-  new Promise((resolve, reject) => {
-    try {
-      if (commandExists("yarn")) {
-        execute(
-          "yarn remove bluebird body-parser fs-extra command-exists consign mongoose"
-        );
-      } else {
-        execute(
-          "npm uninstall -S bluebird body-parser fs-extra command-exists consign mongoose"
-        );
-      }
-      resolve();
-    } catch (err) {
-      reject(err);
-    }
-  });
-
-const removeLines = (data, lines = []) =>
+const removeLinesFromFile = (data, lines = []) =>
   data
     .split("\n")
-    .filter((val, idx) => lines.indexOf(idx) === -1) // eslint-disable-line lodash/prefer-includes
+    .filter((_, idx) => !lines.includes(idx))
     .join("\n");
+
+const writeToFile = (path, file, lines = []) =>
+  fs.writeFile(path, removeLinesFromFile(file, lines), "utf8");
+
+const runCommand = (main, alt, options = "") =>
+  new Promise((resolve, reject) => {
+    try {
+      execute(
+        commandExists("yarn")
+          ? `yarn ${main} ${options}`
+          : `npm ${alt || main} ${options}`
+      );
+      resolve();
+    } catch (err) {
+      reject(err);
+    }
+  });
 
 (async () => {
   try {
-    await fs.removeSync(apiDir);
-    const serverFile = await fs.readFile(serverDir, "utf8");
-    await fs.writeFile(serverDir, removeLines(serverFile, [6, 16, 17]), "utf8");
-    await removeUnusedDependencies();
-    const packageJSONFile = await fs.readFile(packageJSONDir, "utf8");
-    await fs.writeFile(
-      packageJSONDir,
-      removeLines(packageJSONFile, [25]),
-      "utf8"
+    await fs.removeSync("./api");
+    const serverFile = await readFromFile(serverDir);
+    await writeToFile(serverDir, serverFile, [6, 16, 17]);
+    await runCommand(
+      "remove",
+      "uninstall -S",
+      "bluebird body-parser command-exists consign fs-extra mongoose"
     );
-    await updateDependencies();
-    await fs.removeSync(removeAPIDir);
+    const packageJSONFile = await readFromFile(packageJSONDir);
+    await writeToFile(packageJSONDir, packageJSONFile, [25]);
+    await runCommand("install");
+    await fs.removeSync("./removeAPI.js");
   } catch (err) {
     displayError(err);
   } finally {
