@@ -20,13 +20,13 @@ const removeLinesFromFile = (data, lines = []) =>
 const writeToFile = (path, file, lines = []) =>
   fs.writeFile(path, removeLinesFromFile(file, lines), "utf8");
 
-const runCommand = (main, alt, options = "") =>
+const runCommand = (command, alt, options = "") =>
   new Promise((resolve, reject) => {
     try {
       execute(
         commandExists("yarn")
-          ? `yarn ${main} ${options}`
-          : `npm ${alt || main} ${options}`
+          ? `yarn ${command} ${options}`
+          : `npm ${alt || command} ${options}`
       );
       resolve();
     } catch (err) {
