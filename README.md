@@ -20,6 +20,9 @@
 
 ## Project Structure
 
+<br />
+<details>
+<summary>Click to expand project structure</summary>
 ```
 ├── envs
 |   └── index.js
@@ -79,6 +82,8 @@
 ├── postcss.config.js
 └── webpack.babel.js
 ```
+</details>
+<br />
 
 ## Installation
 
@@ -126,6 +131,9 @@ If you wish to remove the API:
 
 ## Configuration
 
+<br />
+<details>
+<summary>Click to expand configuration</summary>
 - `.browserslistrc` config to share target browsers between different front-end tools.
 - `.estlintignore` eslist config to ignore the files and folders specified.
 - `.eslintrc.js` eslint config.
@@ -163,11 +171,16 @@ If you wish to remove the API:
 - `config/plugins.js` webpack plugins required for development or production.
 - `config/rules.js` webpack rules testing.
 - `webpack.babel.js` webpack config for both development and production environments (must be `.babel.js` to accept ES6 `import/export`).
+</details>
+<br />
 
 ## Packages Incorporated
 
 To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/package.json#L109-L218">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/react-ssr-kit/issues">here</a>.
 
+<br />
+<details>
+<summary>Click to expand a brief package list.</summary>
 - [Axios](https://github.com/axios/axios)
 - [Babel](https://github.com/babel/babel)
 - [CSS Loader](https://github.com/webpack-contrib/css-loader)
@@ -202,6 +215,8 @@ To see the latest package versions, please check out the <a href="https://github
 - [Webpackbar](https://www.npmjs.com/package/webpackbar)
 - [Webpack Dev Middleware](https://github.com/webpack/webpack-dev-middleware)
 - [Webpack Hot Middleware](https://github.com/webpack-contrib/webpack-hot-middleware)
+</details>
+<br />
 
 ## Known Issues
 
