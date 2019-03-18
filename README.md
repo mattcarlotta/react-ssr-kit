@@ -23,7 +23,7 @@
 <br />
 <details>
 <summary>Click to expand project structure</summary>
-```
+<pre><code>
 ├── envs
 |   └── index.js
 |
@@ -81,7 +81,7 @@
 ├── index.js
 ├── postcss.config.js
 └── webpack.babel.js
-```
+</code></pre>
 </details>
 <br />
 
@@ -178,9 +178,6 @@ If you wish to remove the API:
 
 To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/package.json#L109-L218">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/react-ssr-kit/issues">here</a>.
 
-<br />
-<details>
-<summary>Click to expand a brief package list.</summary>
 - [Axios](https://github.com/axios/axios)
 - [Babel](https://github.com/babel/babel)
 - [CSS Loader](https://github.com/webpack-contrib/css-loader)
@@ -215,8 +212,6 @@ To see the latest package versions, please check out the <a href="https://github
 - [Webpackbar](https://www.npmjs.com/package/webpackbar)
 - [Webpack Dev Middleware](https://github.com/webpack/webpack-dev-middleware)
 - [Webpack Hot Middleware](https://github.com/webpack-contrib/webpack-hot-middleware)
-</details>
-<br />
 
 ## Known Issues
 
