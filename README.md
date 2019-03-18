@@ -181,40 +181,40 @@ To see the latest package versions, please check out the <a href="https://github
 <details>
 <summary>Click to expand brief overview of packages</summary>
 <pre><code>
-- [Axios](https://github.com/axios/axios)
-- [Babel](https://github.com/babel/babel)
-- [CSS Loader](https://github.com/webpack-contrib/css-loader)
-- [Connected React Router](https://github.com/supasate/connected-react-router)
-- [Eslint](https://github.com/eslint/eslint/)
-- [Enzyme](http://airbnb.io/enzyme/)
-- [Express](https://github.com/expressjs/express)
-- [Friendly Errors Webpack Plugin](https://github.com/geowarin/friendly-errors-webpack-plugin)
-- [History](https://github.com/ReactTraining/history)
-- [Husky](https://github.com/typicode/husky)
-- [Jest](https://github.com/facebook/jest)
-- [Lodash](https://github.com/lodash/lodash)
-- [Mini CSS Extract Plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
-- [Morgan](https://github.com/expressjs/morgan)
-- [Prettier](https://github.com/prettier/prettier)
-- [PropTypes](https://github.com/facebook/prop-types)
-- [React](https://github.com/facebook/react)
-- [React Helmet](https://github.com/nfl/react-helmet)
-- [React Hot Loader](https://github.com/gaearon/react-hot-loader)
-- [React Loadable](https://github.com/jamiebuilds/react-loadable)
-- [React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
-- [React Router Config](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config)
-- [Redux](https://github.com/reduxjs/redux)
-- [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
-- [Redux Thunk](https://github.com/reduxjs/redux-thunk)
-- [Sass Loader](https://github.com/webpack-contrib/sass-loader)
-- [Stylelint](https://stylelint.io/)
-- [Stylelint-SCSS](https://github.com/kristerkari/stylelint-scss)
-- [Stylelint-Config-Recommended](https://github.com/stylelint/stylelint-config-recommended)
-- [Style Loader](https://github.com/webpack-contrib/style-loader)
-- [Webpack](https://github.com/webpack/webpack)
-- [Webpackbar](https://www.npmjs.com/package/webpackbar)
-- [Webpack Dev Middleware](https://github.com/webpack/webpack-dev-middleware)
-- [Webpack Hot Middleware](https://github.com/webpack-contrib/webpack-hot-middleware)
+- <a href="https://github.com/axios/axios">Axios</a>
+- <a href="https://github.com/babel/babel">Babel</a>
+- <a href="https://github.com/webpack-contrib/css-loader">CSS Loader</a>
+- <a href="https://github.com/supasate/connected-react-router">Connected React Router</a>
+- <a href="https://github.com/eslint/eslint/">Eslint</a>
+- <a href="http://airbnb.io/enzyme/">Enzyme</a>
+- <a href="https://github.com/expressjs/express"<Express</a>
+- <a href="https://github.com/geowarin/friendly-errors-webpack-plugin">Friendly Errors Webpack Plugin</a>
+- <a href="https://github.com/ReactTraining/history">History</a>
+- <a href="https://github.com/typicode/husky">Husky</a>
+- <a href="https://github.com/facebook/jest">Jest</a>
+- <a href="https://github.com/lodash/lodash">Lodash</a>
+- <a href="https://github.com/webpack-contrib/mini-css-extract-plugin">Mini CSS Extract Plugin</a>
+- <a href="https://github.com/expressjs/morgan">Morgan</a>
+- <a href="https://github.com/prettier/prettier">Prettier</a>
+- <a href="https://github.com/facebook/prop-types">PropTypes</a>
+- <a href="https://github.com/facebook/react">React</a>
+- <a href="https://github.com/nfl/react-helmet">React Helmet</a>
+- <a href="https://github.com/gaearon/react-hot-loader">React Hot Loader</a>
+- <a href="https://github.com/jamiebuilds/react-loadable">React Loadable</a>
+- <a href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom">React Router Dom</a>
+- <a href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config">React Router Config</a>
+- <a href="https://github.com/reduxjs/redux">Redux</a>
+- <a href="https://github.com/zalmoxisus/redux-devtools-extension">Redux DevTools Extension</a>
+- <a href="https://github.com/reduxjs/redux-thunk">Redux Thunk</a>
+- <a href="https://github.com/webpack-contrib/sass-loader">Sass Loader</a>
+- <a href="https://stylelint.io/">Stylelint</a>
+- <a href="https://github.com/kristerkari/stylelint-scss">Stylelint-SCSS</a>
+- <a href="https://github.com/stylelint/stylelint-config-recommended">Stylelint-Config-Recommended</a>
+- <a href="https://github.com/webpack-contrib/style-loader">Style Loader</a>
+- <a href="https://github.com/webpack/webpack">Webpack</a>
+- <a href="https://www.npmjs.com/package/webpackbar">Webpackbar</a>
+- <a href="https://github.com/webpack/webpack-dev-middleware">Webpack Dev Middleware</a>
+- <a href="https://github.com/webpack-contrib/webpack-hot-middleware">Webpack Hot Middleware</a>
 </code></pre>
 </details>
 <br />
