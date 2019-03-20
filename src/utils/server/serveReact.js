@@ -10,10 +10,10 @@ import { createMemoryHistory } from "history";
 import Helmet from "react-helmet";
 import chalk from "chalk";
 
-import routes from "../../routes";
-import renderHtml from "./renderHtml";
-import configureStore from "../../store/configureStore";
+import routes from "routes";
+import configureStore from "store/configureStore";
 import { inDevelopment } from "../../../envs";
+import renderHtml from "./renderHtml";
 
 //= =============================================================================//
 // SERVER-SIDE ROUTING TO HANDLE ASSET CHUNKING AND DISPERSAL                     /

@@ -4,11 +4,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { connect } from "react-redux";
-import Placeholder from "../../components/Placeholder";
-import DisplayUserList from "../../components/DisplayUserList";
-import UserListNavigation from "../../components/UserListNavigation";
-import * as actions from "../../actions/users";
-import { setPopMessage, setPopErrorMessage } from "../../actions/server";
+import Placeholder from "components/Placeholder";
+import DisplayUserList from "components/DisplayUserList";
+import UserListNavigation from "components/UserListNavigation";
+import * as actions from "actions/users";
+import { setPopMessage, setPopErrorMessage } from "actions/server";
 import { preventScroll, usersContainer } from "./styles.scss";
 
 export class ShowUsers extends Component {

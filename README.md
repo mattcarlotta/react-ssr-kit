@@ -43,6 +43,7 @@
 |   ├── actions
 |   ├── components
 |   ├── containers
+|   ├── images
 |   ├── pages
 |   ├── reducers
 |   ├── root
@@ -136,7 +137,7 @@ If you wish to remove the API:
 - .browserslistrc: config to share target browsers between different front-end tools.
 - .estlintignore: eslist config to ignore the files and folders specified.
 - .eslintrc.js: eslint config.
-- babel.config.js: babel config.
+- babel.config.js: babel config (note that main folders are aliased in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/babel.config.js">here</a>).
 - jest.json: jest config.
 - nodemon.json: nodemon config.
 - postcss.config.js: postcss config.
@@ -222,6 +223,6 @@ To see the latest package versions, please check out the <a href="https://github
 ## Known Issues
 
 ⚠️ React Hot Loader throws a warning if you use `react-dom` instead of `@hot-loader/react-dom`: <a href="https://stackoverflow.com/a/54816859/7376526">react-🔥-dom patch is not detected. React 16.6+ features may not work.</a>
-By default, React Hot loader has been disabled. If you wish to utilize React Hot Loader, then follow these <a href="https://github.com/hot-loader/react-dom#webpack">instructions to resolve hot-loader/react-dom</a> inside of <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/webpack.babel.js#L55-L59">webpack.babel.config</a>. In addition, in `src/components/app/App.js` you must uncomment <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/components/App/App.js#L5">line 5</a> and <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/components/App/App.js#L29">line 29</a>; as well as, in `src/root` you must uncomment <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/root/index.js#L4">line 4</a> and wrap <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/root/index.js#L10-L12">lines 10-12<a/> with an `<AppContainer>...</AppContainer>`. If the process is already running, you must stop and restart it.
+By default, React Hot loader has been disabled. If you wish to utilize React Hot Loader, then follow these <a href="https://github.com/hot-loader/react-dom#webpack">instructions to resolve hot-loader/react-dom</a> inside of <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/webpack.babel.js#L55-L59">webpack.babel.config</a>. In addition, in `src/components/app/App.js` you must uncomment <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/components/App/App.js#L5">line 5</a> and <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/components/App/App.js#L44">line 29</a>; as well as, in `src/root` you must uncomment <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/root/index.js#L4">line 4</a> and wrap <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/src/root/index.js#L10-L12">lines 10-12<a/> with an `<AppContainer>...</AppContainer>`. If the process is already running, you must stop and restart it.
 
 ⚠️ ReactLoadablePlugin throws two deprecation warnings during compilation: <a href="https://github.com/jamiebuilds/react-loadable/pull/140">DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead. DeprecationWarning: Chunk.forEachModule: Use for(const module of chunk.modulesIterable) instead.</a>

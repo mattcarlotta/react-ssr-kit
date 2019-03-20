@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import EditButton from "../EditButton";
-import DeleteButton from "../DeleteButton";
+import EditButton from "components/EditButton";
+import DeleteButton from "components/DeleteButton";
 import Divider from "./Divider";
 import {
   backgroundDetails,

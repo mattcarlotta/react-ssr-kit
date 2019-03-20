@@ -1,9 +1,9 @@
-import App from "../components/App";
-import Home from "../pages/Home";
-import NotFound from "../pages/NotFound";
-import ShowUsers from "../pages/ShowUsers";
-import { fetchUsers } from "../actions/users";
-import { setPopMessage } from "../actions/server";
+import App from "components/App";
+import Home from "pages/Home";
+import NotFound from "pages/NotFound";
+import ShowUsers from "pages/ShowUsers";
+import { fetchUsers } from "actions/users";
+import { setPopMessage } from "actions/server";
 
 const routes = [
   {

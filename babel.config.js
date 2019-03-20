@@ -12,6 +12,26 @@ module.exports = api => {
   ];
 
   const plugins = [
+    [
+      "module-resolver",
+      {
+        alias: {
+          envs: "./envs",
+          actions: "./src/actions",
+          components: "./src/components",
+          containers: "./src/containers",
+          images: "./src/images",
+          pages: "./src/pages",
+          reducers: "./src/reducers",
+          root: "./src/root",
+          routes: "./src/routes",
+          store: "./src/store",
+          styles: "./src/styles",
+          types: "./src/types",
+          utils: "./src/utils"
+        }
+      }
+    ],
     "react-loadable/babel",
     "dynamic-import-node",
     "lodash",

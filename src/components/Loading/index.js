@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from "react";
-import ErrorDisplay from "../ErrorDisplay";
+import ErrorDisplay from "components/ErrorDisplay";
 import { loadingContainer } from "./styles.scss";
 
 const Loading = ({ pastDelay, error }) => {

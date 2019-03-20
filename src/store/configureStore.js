@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from "redux";
 import { routerMiddleware } from "connected-react-router";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk from "redux-thunk";
-import createRootReducer from "../reducers";
+import createRootReducer from "reducers";
 
 export default (history, initialState = {}) => {
   const middlewares = applyMiddleware(thunk, routerMiddleware(history));

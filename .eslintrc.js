@@ -10,7 +10,7 @@ module.exports = {
   settings: {
     "import/resolver": {
       webpack: {
-        config: "./tools/webpack/webpack.babel.js"
+        config: "./webpack.babel.js"
       }
     }
   },
@@ -31,6 +31,7 @@ module.exports = {
     }
   ],
   rules: {
+    "import/no-named-as-default": 0,
     "no-return-assign": 0,
     "global-require": "off",
     "jsx-a11y/label-has-associated-control": [

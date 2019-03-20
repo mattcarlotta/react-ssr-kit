@@ -2,7 +2,7 @@ import { shallow, mount } from "enzyme";
 import thunk from "redux-thunk";
 import { createBrowserHistory } from "history";
 import { createStore, applyMiddleware } from "redux";
-import rootReducer from "../../reducers";
+import rootReducer from "reducers";
 
 const history = createBrowserHistory();
 const middlewares = applyMiddleware(thunk);

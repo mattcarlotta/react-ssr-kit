@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CloseButton from "../CloseButton";
+import CloseButton from "components/CloseButton";
 import {
   modalBody,
   modalClose,

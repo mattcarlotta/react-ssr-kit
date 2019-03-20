@@ -1,11 +1,11 @@
 import isEmpty from "lodash/isEmpty";
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import Card from "../Card";
-import Container from "../Container";
-import Modal from "../Modal";
-import NoData from "../NoData";
-import UserForm from "../../containers/UserForm";
+import Card from "components/Card";
+import Container from "components/Container";
+import Modal from "components/Modal";
+import NoData from "components/NoData";
+import UserForm from "containers/UserForm";
 
 const DisplayUserList = ({
   data,

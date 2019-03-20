@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "../../root";
+import App from "root";
 
 //= =============================================================================//
 // CLIENT-SIDE HOT LOADING, REDUX STATE, AND ROUTE SETUP                          /

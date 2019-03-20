@@ -1,4 +1,8 @@
-import { resetPopMessages, setPopMessage, setPopErrorMessage } from "../server";
+import {
+  resetPopMessages,
+  setPopMessage,
+  setPopErrorMessage
+} from "actions/server";
 
 const initialState = {
   error: "",

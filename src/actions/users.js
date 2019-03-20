@@ -1,4 +1,4 @@
-import API from "../utils/client/axiosConfig";
+import API from "utils/client/axiosConfig";
 
 /**
  * @function createUser - attempts to create a new user in DB.
