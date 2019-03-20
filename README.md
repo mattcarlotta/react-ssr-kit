@@ -137,7 +137,7 @@ If you wish to remove the API:
 - .browserslistrc: config to share target browsers between different front-end tools.
 - .estlintignore: eslist config to ignore the files and folders specified.
 - .eslintrc.js: eslint config.
-- babel.config.js: babel config (note that main folders are aliased in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/babel.config.js#L19-L32">here</a>).
+- babel.config.js: babel config (note that main folders are aliased in <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/babel.config.js#L19-L33">here</a>).
 - jest.json: jest config.
 - nodemon.json: nodemon config.
 - postcss.config.js: postcss config.
