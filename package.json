@@ -128,6 +128,7 @@
     "compression": "^1.7.3",
     "connected-react-router": "^6.3.1",
     "consign": "^0.1.6",
+    "core-js": "3",
     "css-modules-require-hook": "^4.2.3",
     "express": "^4.16.4",
     "helmet": "^3.15.1",
