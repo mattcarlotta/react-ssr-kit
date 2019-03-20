@@ -177,7 +177,7 @@ If you wish to remove the API:
 
 ## Packages Incorporated
 
-To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/package.json#L109-L218">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/react-ssr-kit/issues">here</a>.
+To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/react-ssr-kit/blob/master/package.json#L109-L219">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/react-ssr-kit/issues">here</a>.
 
 <details>
 <summary>Click to expand brief overview of packages</summary>
