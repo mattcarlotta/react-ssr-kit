@@ -39,7 +39,7 @@ class UserForm extends Component {
 
   handleCloseError = () => this.setState({ error: "" });
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
     const {
       email,
@@ -88,16 +88,14 @@ class UserForm extends Component {
       }
     };
 
-    this.props
-      .submitAction({ formProps, id })
-      .then(res => {
-        this.props.updateUserList(res.data.message);
-      })
-      .catch(err => {
-        this.setState({
-          error: err ? err.toString() : "Unable to create a new user!"
-        });
+    try {
+      const res = await this.props.submitAction({ formProps, id });
+      this.props.updateUserList(res.data.message);
+    } catch (err) {
+      this.setState({
+        error: err ? err.toString() : "Unable to create a new user!"
       });
+    }
   };
 
   render = () => (

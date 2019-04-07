@@ -1,9 +1,9 @@
 import Loadable from "react-loadable";
 import { createBrowserHistory } from "history";
 import renderApp from "utils/client/renderApp";
-import routes from "routes";
 import configureStore from "store/configureStore";
 import "styles/globals/globals.scss";
+import routes from "./routes";
 
 //= =============================================================================//
 // CLIENT-SIDE RENDERING SETUP                                                    /

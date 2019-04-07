@@ -27,9 +27,11 @@ export default app => {
     const loadInitialState = () => {
       const branch = matchRoutes(routes, req.path);
 
-      const promises = branch.map(({ route }) => {
+      const promises = branch.map(async ({ route }) => {
         if (route.loadInitState) {
-          return Promise.all(route.loadInitState());
+          const response = await Promise.all(route.loadInitState());
+          const newdata = response.map(({ data }) => ({ ...data }));
+          return newdata;
         }
         return Promise.resolve();
       });
@@ -63,8 +65,8 @@ export default app => {
       try {
         // Load data from server-side first
         await loadReduxData();
-        const [, data] = await loadInitialState();
-        const initialState = data && !isNull(data) ? { ...data[0].data } : {};
+        const data = await loadInitialState();
+        const initialState = data && !isNull(data) ? { ...data[0] } : {};
 
         const modules = [];
         const staticContext = initialState;

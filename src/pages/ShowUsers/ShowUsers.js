@@ -7,7 +7,13 @@ import { connect } from "react-redux";
 import Placeholder from "components/Placeholder";
 import DisplayUserList from "components/DisplayUserList";
 import UserListNavigation from "components/UserListNavigation";
-import * as actions from "actions/users";
+import {
+  createUser,
+  deleteUser,
+  fetchUsers,
+  seedDB,
+  updateUser
+} from "actions/users";
 import { setPopMessage, setPopErrorMessage } from "actions/server";
 import { preventScroll, usersContainer } from "./styles.scss";
 
@@ -37,51 +43,51 @@ export class ShowUsers extends Component {
     }
   };
 
-  fetchData = () => {
-    this.props
-      .fetchUsers()
-      .then(res => this.setState({ data: res.data, isLoading: false }))
-      .catch(err => {
-        this.setState(
-          {
-            isLoading: false
-          },
-          () =>
-            this.props.setPopErrorMessage(
-              err ? err.toString() : "Unable to retrieve data from database!"
-            )
-        );
-      });
-  };
-
-  handleSeedDatabase = () => {
-    this.props
-      .seedDB()
-      .then(res => this.setState({ data: res.data, isLoading: false }))
-      .catch(err => {
-        this.setState(
-          {
-            isLoading: false
-          },
-          () =>
-            this.props.setPopErrorMessage(
-              err
-                ? err.toString()
-                : "Unable to seed database! Make sure the API is running."
-            )
-        );
-      });
-  };
-
-  handleDeleteClick = id => {
-    this.props
-      .deleteUser(id)
-      .then(res => this.updateUserList(res.data.message))
-      .catch(err =>
-        this.props.setPopErrorMessage(
-          err ? err.toString() : "Unable to delete item!"
-        )
+  fetchData = async () => {
+    try {
+      const res = await fetchUsers();
+      this.setState({ data: res.data, isLoading: false });
+    } catch (err) {
+      this.setState(
+        {
+          isLoading: false
+        },
+        () =>
+          this.props.setPopErrorMessage(
+            err ? err.toString() : "Unable to retrieve data from database!"
+          )
       );
+    }
+  };
+
+  handleSeedDatabase = async () => {
+    try {
+      const res = await seedDB();
+      this.setState({ data: res.data, isLoading: false });
+    } catch (err) {
+      this.setState(
+        {
+          isLoading: false
+        },
+        () =>
+          this.props.setPopErrorMessage(
+            err
+              ? err.toString()
+              : "Unable to seed database! Make sure the API is running."
+          )
+      );
+    }
+  };
+
+  handleDeleteClick = async id => {
+    try {
+      const res = await deleteUser(id);
+      this.updateUserList(res.data.message);
+    } catch (err) {
+      this.props.setPopErrorMessage(
+        err ? err.toString() : "Unable to delete item!"
+      );
+    }
   };
 
   handleEditClick = id => this.setState({ isEditingID: id });
@@ -119,7 +125,7 @@ export class ShowUsers extends Component {
         ) : (
           <DisplayUserList
             data={data}
-            createUser={this.props.createUser}
+            createUser={createUser}
             isEditingID={isEditingID}
             openModal={openModal}
             onHandleCloseModal={this.handleCloseModal}
@@ -127,7 +133,7 @@ export class ShowUsers extends Component {
             onHandleEditClick={this.handleEditClick}
             onHandleResetEditClick={this.handleResetEditClick}
             onUpdateUserList={this.updateUserList}
-            updateUser={this.props.updateUser}
+            updateUser={updateUser}
           />
         )}
       </div>
@@ -136,11 +142,6 @@ export class ShowUsers extends Component {
 }
 
 ShowUsers.propTypes = {
-  createUser: PropTypes.func.isRequired,
-  deleteUser: PropTypes.func.isRequired,
-  fetchUsers: PropTypes.func.isRequired,
-  seedDB: PropTypes.func.isRequired,
-  updateUser: PropTypes.func.isRequired,
   setPopMessage: PropTypes.func.isRequired,
   setPopErrorMessage: PropTypes.func.isRequired,
   staticContext: PropTypes.shape({
@@ -169,5 +170,5 @@ ShowUsers.propTypes = {
 
 export default connect(
   null,
-  { setPopMessage, setPopErrorMessage, ...actions }
+  { setPopMessage, setPopErrorMessage }
 )(ShowUsers);
