@@ -61,7 +61,9 @@ describe("Pop Message", () => {
     });
 
     it("after a 3.5 second timeout", () => {
+      wrapper.instance().componentDidMount();
       setTimeout(() => {
+        wrapper.update();
         expect(resetPopMessages).toHaveBeenCalledTimes(1);
       }, 3500);
     });

@@ -4,7 +4,7 @@ import Adapter from "enzyme-adapter-react-16";
 import { createStoreFactory, mountWrap, shallowWrap } from "utils/client/tests";
 import mockAxios from "utils/client/mocks/axios";
 
-configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter(), disableLifecycleMethods: true });
 
 //= =============================================================================//
 // JEST AND ENZYME TESTING SETUP                                                  /

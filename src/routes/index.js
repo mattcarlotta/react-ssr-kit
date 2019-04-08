@@ -1,7 +1,7 @@
 import App from "components/App";
-import Home from "pages/Home";
-import NotFound from "pages/NotFound";
-import ShowUsers from "pages/ShowUsers";
+import Home from "views/Home";
+import NotFound from "views/NotFound";
+import ShowUsers from "views/ShowUsers";
 import { fetchUsers } from "actions/users";
 import { setPopMessage } from "actions/server";
 

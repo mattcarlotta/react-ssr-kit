@@ -21,7 +21,7 @@ import renderHtml from "./renderHtml";
 
 export default app => {
   app.get("*", async (req, res) => {
-    const history = createMemoryHistory();
+    const history = createMemoryHistory({ initialEntries: [req.url || ""] });
     const store = configureStore(history);
 
     const loadInitialState = () => {

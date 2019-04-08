@@ -21,16 +21,12 @@ export const mockSetPopMessage = jest.fn();
 export const mockSetPopErrorMessage = jest.fn();
 export const mockUpdateUser = jest.fn();
 
-const res = { data: { users: mockUsers } };
+// const res = { data: { users: mockUsers } };
 
 export const mockFetchUsers = jest.fn(
-  success =>
-    new Promise((resolve, reject) => {
-      if (success) {
-        resolve(res);
-      } else {
-        reject(new Error("Unable to fetch users!"));
-      }
+  () =>
+    new Promise((_, reject) => {
+      reject(new Error("Unable to fetch users!"));
     })
 );
 
@@ -49,12 +45,8 @@ export const mockDeleteUser = jest.fn(
 );
 
 export const mockSeedDB = jest.fn(
-  success =>
-    new Promise((resolve, reject) => {
-      if (success) {
-        resolve(res);
-      } else {
-        reject(new Error("Unable to seed database"));
-      }
+  () =>
+    new Promise((_, reject) => {
+      reject(new Error("Unable to seed database"));
     })
 );

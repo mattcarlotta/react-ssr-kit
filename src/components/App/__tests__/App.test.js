@@ -1,5 +1,5 @@
 import { createBrowserHistory } from "history";
-import Home from "pages/Home/Home";
+import Home from "views/Home/Home";
 import configureStore from "store/configureStore";
 import { App } from "../App";
 

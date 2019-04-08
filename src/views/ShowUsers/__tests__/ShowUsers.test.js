@@ -1,26 +1,33 @@
 import { StaticRouter } from "react-router-dom";
 import { ShowUsers } from "../ShowUsers";
 import {
-  mockCreateUser,
   mockDeleteUser,
   mockFetchUsers,
   mockSeedDB,
   mockSetPopMessage,
   mockSetPopErrorMessage,
-  mockUpdateUser,
   mockUsers
 } from "../__mocks__/ShowUsers.mocks";
+
+jest.mock("../../../actions/users", () => ({
+  ...require.requireActual("../../../actions/users"),
+  fetchUsers: () => mockFetchUsers(),
+  deleteUser: id => mockDeleteUser(id),
+  seedDB: () => mockSeedDB("")
+}));
 
 window.__CLIENT__ = true;
 
 const initialProps = {
-  createUser: mockCreateUser,
-  deleteUser: id => mockDeleteUser(id),
-  fetchUsers: () => mockFetchUsers(""),
-  seedDB: () => mockSeedDB(""),
   setPopMessage: mockSetPopMessage,
-  setPopErrorMessage: mockSetPopErrorMessage,
-  updateUser: mockUpdateUser
+  setPopErrorMessage: mockSetPopErrorMessage
+};
+
+const initialState = {
+  data: {},
+  isEditingID: "",
+  isLoading: true,
+  openModal: false
 };
 
 const context = {};
@@ -35,7 +42,7 @@ const mountComponent = (props = {}) =>
 describe("Show Users Page", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mountComponent({ ...initialProps });
+    wrapper = shallow(<ShowUsers {...initialProps} />, initialState);
   });
 
   afterEach(() => {
@@ -47,60 +54,56 @@ describe("Show Users Page", () => {
   });
 
   it("renders UserListNavigation", () => {
-    expect(wrapper.find("div.userListNav")).toHaveLength(1);
+    expect(wrapper.find("UserListNavigation")).toHaveLength(1);
   });
 
   describe("if data is not present during initial load", () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.runAllTimers();
+    });
+
     it("initially renders a placeholder", () => {
-      expect(wrapper.find("div.placeholderContainer")).toHaveLength(1);
+      expect(wrapper.find("Placeholder")).toHaveLength(1);
     });
 
-    it("displays NoData component if database returns an empty user list", async () => {
-      await Promise.resolve();
-      wrapper.update();
-      expect(mockFetchUsers).toHaveBeenCalled();
-      expect(wrapper.find("div.noDataContainer")).toHaveLength(1);
-      expect(mockSetPopErrorMessage).toHaveBeenCalled();
+    it("displays NoData component if database returns an empty user list", () => {
+      wrapper.instance().componentDidMount();
+
+      setTimeout(() => {
+        wrapper.update();
+        expect(
+          wrapper
+            .find("DisplayUserList")
+            .dive()
+            .find("NoData")
+        ).toHaveLength(1);
+        expect(mockFetchUsers).toHaveBeenCalledWith();
+        expect(mockSetPopErrorMessage).toHaveBeenCalledWith(
+          "Error: Unable to fetch users!"
+        );
+      }, 1000);
     });
 
-    it("renders DisplayUserList if database contains a user list", async () => {
-      wrapper = mountComponent({
-        ...initialProps,
-        fetchUsers: () => mockFetchUsers("success")
+    it("displays an error message if the Seed Database button API call fails", () => {
+      wrapper.instance().handleSeedDatabase();
+
+      setTimeout(() => {
+        wrapper.update();
+        expect(mockSeedDB).toHaveBeenCalled();
+        expect(mockSetPopErrorMessage).toHaveBeenCalledWith(
+          "Error: Unable to seed database"
+        );
       });
-      await Promise.resolve();
-      wrapper.update();
-      expect(wrapper.find("div.userCard")).toHaveLength(1);
-    });
-
-    it("displays an error message if the Seed Database button API call fails", async () => {
-      wrapper
-        .find("span.seedDatabaseButton")
-        .find("button")
-        .simulate("click");
-      await Promise.resolve();
-      expect(mockSetPopErrorMessage).toHaveBeenCalled();
-    });
-
-    it("renders DisplayUserList if Seed Database button API call succeeds", async () => {
-      wrapper = mountComponent({
-        ...initialProps,
-        seedDB: () => mockSeedDB("success")
-      });
-      wrapper
-        .find("span.seedDatabaseButton")
-        .find("button")
-        .simulate("click");
-      await Promise.resolve();
-      wrapper.update();
-      expect(wrapper.find("div.userCard")).toHaveLength(1);
     });
   });
 
   describe("if data is present during initial load", () => {
-    const data = { users: mockUsers };
     beforeEach(() => {
-      window.__INITIAL_STATE__ = data;
+      window.__INITIAL_STATE__ = { users: mockUsers };
       wrapper = mountComponent({ ...initialProps });
     });
 
