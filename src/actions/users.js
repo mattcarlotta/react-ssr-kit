@@ -23,7 +23,7 @@ export const fetchUsers = () => API.get("users");
  * @function updateUser - attempts to update a current user in DB.
  * @returns {promise}
  */
-export const updateUser = ({ formProps, id }) => () =>
+export const updateUser = ({ formProps, id }) =>
   API.put(`users/update/${id}`, { ...formProps });
 
 /**

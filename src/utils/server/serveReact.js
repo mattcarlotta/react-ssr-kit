@@ -1,4 +1,4 @@
-import isNull from "lodash/isNull";
+import isEmpty from "lodash/isEmpty";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
@@ -30,10 +30,9 @@ export default app => {
       const promises = branch.map(async ({ route }) => {
         if (route.loadInitState) {
           const response = await Promise.all(route.loadInitState());
-          const newdata = response.map(({ data }) => ({ ...data }));
-          return newdata;
+          return response.map(({ data }) => ({ ...data }));
         }
-        return Promise.resolve();
+        return null;
       });
 
       return Promise.all(promises);
@@ -58,15 +57,23 @@ export default app => {
         return Promise.resolve(null);
       });
 
-      return Promise.all(promises);
+      return promises;
+    };
+
+    const flattenToObject = arr => {
+      const obj = {};
+      arr.forEach(elem => {
+        Object.assign(obj, elem);
+      });
+      return obj;
     };
 
     (async () => {
       try {
         // Load data from server-side first
         await loadReduxData();
-        const data = await loadInitialState();
-        const initialState = data && !isNull(data) ? { ...data[0] } : {};
+        const [, data] = await loadInitialState();
+        const initialState = !isEmpty(data) ? flattenToObject(data) : {};
 
         const modules = [];
         const staticContext = initialState;
