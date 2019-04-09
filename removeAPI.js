@@ -20,14 +20,10 @@ const removeLinesFromFile = (data, lines = []) =>
 const writeToFile = (path, file, lines = []) =>
   fs.writeFile(path, removeLinesFromFile(file, lines), "utf8");
 
-const runCommand = (command, alt, options = "") =>
+const updateDeps = () =>
   new Promise((resolve, reject) => {
     try {
-      execute(
-        commandExists("yarn")
-          ? `yarn ${command} ${options}`
-          : `npm ${alt || command} ${options}`
-      );
+      execute(commandExists("yarn") ? `yarn install` : `npm install`);
       resolve();
     } catch (err) {
       reject(err);
@@ -39,14 +35,17 @@ const runCommand = (command, alt, options = "") =>
     await fs.removeSync("./api");
     const serverFile = await readFromFile(serverDir);
     await writeToFile(serverDir, serverFile, [6, 16, 17]);
-    await runCommand(
-      "remove",
-      "uninstall -S",
-      "bluebird body-parser command-exists consign fs-extra mongoose"
-    );
     const packageJSONFile = await readFromFile(packageJSONDir);
-    await writeToFile(packageJSONDir, packageJSONFile, [25]);
-    await runCommand("install");
+    await writeToFile(packageJSONDir, packageJSONFile, [
+      25,
+      124,
+      125,
+      129,
+      138,
+      167,
+      179
+    ]);
+    await updateDeps();
     await fs.removeSync("./removeAPI.js");
   } catch (err) {
     displayError(err);

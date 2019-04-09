@@ -1,6 +1,6 @@
 {
   "name": "react-ssr-kit",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A Server Side Rendering boilerplate.",
   "main": "index.js",
   "engines": {
